@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="NatuurAppAPI.API" CodeBehind="Service1.svc.cs" %>

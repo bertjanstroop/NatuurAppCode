@@ -1,7 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Phone
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NatuurApp", "NatuurApp\NatuurApp.csproj", "{435723CA-5C10-4091-B04C-7C903C9FDE8F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A59C50F-0B43-42EA-A038-010086D68E63} = {8A59C50F-0B43-42EA-A038-010086D68E63}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NatuurAppAPI", "NatuurAppAPI\NatuurAppAPI.csproj", "{8A59C50F-0B43-42EA-A038-010086D68E63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{435723CA-5C10-4091-B04C-7C903C9FDE8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{435723CA-5C10-4091-B04C-7C903C9FDE8F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{435723CA-5C10-4091-B04C-7C903C9FDE8F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8A59C50F-0B43-42EA-A038-010086D68E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A59C50F-0B43-42EA-A038-010086D68E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A59C50F-0B43-42EA-A038-010086D68E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A59C50F-0B43-42EA-A038-010086D68E63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
