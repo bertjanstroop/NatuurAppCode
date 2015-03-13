@@ -29,15 +29,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetStringData">
+  <xs:element name="GetTest">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetStringDataResponse">
+  <xs:element name="GetTestResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetStringDataResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetTestResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

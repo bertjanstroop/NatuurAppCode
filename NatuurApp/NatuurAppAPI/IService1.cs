@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -22,7 +21,7 @@ namespace NatuurAppAPI
 
         // TODO: Add your service operations here
         [OperationContract]
-        string GetStringData();
+        string GetTest();
     }
 
 
