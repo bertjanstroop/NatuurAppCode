@@ -1,5 +1,0 @@
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurAppAPI\bin\NatuurAppAPI.dll
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurAppAPI\bin\NatuurAppAPI.pdb
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurAppAPI\obj\Debug\NatuurAppAPI.dll
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurAppAPI\obj\Debug\NatuurAppAPI.pdb
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurAppAPI\obj\Debug\NatuurAppAPI.csprojResolveAssemblyReference.cache
