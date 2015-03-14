@@ -1,7 +1,7 @@
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\bin\WcfService1.dll
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\bin\WcfService1.pdb
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\obj\Debug\WcfService1.dll
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\obj\Debug\WcfService1.pdb
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\bin\App_Data\Database_log.ldf
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\bin\App_Data\Database.mdf
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\bin\WcfService1.dll
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\bin\WcfService1.pdb
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\obj\Debug\WcfService1.dll
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\obj\Debug\WcfService1.pdb
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache

@@ -7,6 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections;
 namespace WcfService1
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
@@ -17,38 +18,29 @@ namespace WcfService1
         private SqlConnection cs = new SqlConnection(ConnectionString);
         private SqlDataAdapter da;
         private SqlCommand cmd;
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
-
 
         public string GetStringResult(string Query)
         {
-            throw new NotImplementedException();
-        }
+            string result = string.Empty;
 
-        public System.Collections.IEnumerable GetResult(string Query)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                cs.Open();
+                cmd.CommandText = Query;
+                result = cmd.ExecuteScalar().ToString();
+            }
+            catch (SqlException)
+            {
+                result = "";
+            }
+            return result;
         }
 
         public void ExecuteCommand(string Query)
         {
-            throw new NotImplementedException();
+            cs.Open();
+            cmd.CommandText = Query;
+            cmd.ExecuteNonQuery();
         }
 
 
@@ -60,10 +52,21 @@ namespace WcfService1
                 cs.Close();
                 return true;
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 return false;
             }
+        }
+
+
+        public IEnumerable GetIEnumerableResult(string Query)
+        {
+            DataTable result = new DataTable();
+            da = new SqlDataAdapter(Query, cs);
+            cs.Open();
+            da.Fill(result);
+            cs.Close();
+            return (IEnumerable)result;
         }
     }
 }
