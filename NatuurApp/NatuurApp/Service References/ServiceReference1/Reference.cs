@@ -19,25 +19,28 @@ namespace NatuurApp.ServiceReference1 {
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/TestDBConnection", ReplyAction="http://tempuri.org/IService1/TestDBConnectionResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.IAsyncResult BeginTestDBConnection(NatuurApp.ServiceReference1.TestDBConnectionRequest request, System.AsyncCallback callback, object asyncState);
         
         NatuurApp.ServiceReference1.TestDBConnectionResponse EndTestDBConnection(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/GetStringResult", ReplyAction="http://tempuri.org/IService1/GetStringResultResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.IAsyncResult BeginGetStringResult(NatuurApp.ServiceReference1.GetStringResultRequest request, System.AsyncCallback callback, object asyncState);
         
         NatuurApp.ServiceReference1.GetStringResultResponse EndGetStringResult(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/ExecuteCommand", ReplyAction="http://tempuri.org/IService1/ExecuteCommandResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.IAsyncResult BeginExecuteCommand(NatuurApp.ServiceReference1.ExecuteCommandRequest request, System.AsyncCallback callback, object asyncState);
         
         NatuurApp.ServiceReference1.ExecuteCommandResponse EndExecuteCommand(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/GetIEnumerableResult", ReplyAction="http://tempuri.org/IService1/GetIEnumerableResultResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
-        System.IAsyncResult BeginGetIEnumerableResult(NatuurApp.ServiceReference1.GetIEnumerableResultRequest request, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/GetDataTableResult", ReplyAction="http://tempuri.org/IService1/GetDataTableResultResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.IAsyncResult BeginGetDataTableResult(NatuurApp.ServiceReference1.GetDataTableResultRequest request, System.AsyncCallback callback, object asyncState);
         
-        NatuurApp.ServiceReference1.GetIEnumerableResultResponse EndGetIEnumerableResult(System.IAsyncResult result);
+        NatuurApp.ServiceReference1.GetDataTableResultResponse EndGetDataTableResult(System.IAsyncResult result);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -71,6 +74,7 @@ namespace NatuurApp.ServiceReference1 {
     public partial class GetStringResultRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Query;
         
         public GetStringResultRequest() {
@@ -87,6 +91,7 @@ namespace NatuurApp.ServiceReference1 {
     public partial class GetStringResultResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string GetStringResultResult;
         
         public GetStringResultResponse() {
@@ -103,6 +108,7 @@ namespace NatuurApp.ServiceReference1 {
     public partial class ExecuteCommandRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Query;
         
         public ExecuteCommandRequest() {
@@ -122,35 +128,81 @@ namespace NatuurApp.ServiceReference1 {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34230")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetIEnumerableResult", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetIEnumerableResultRequest {
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/")]
+    public partial class GetDataTableResultResponseGetDataTableResultResult : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string Query;
+        private System.Xml.Linq.XElement[] anyField;
         
-        public GetIEnumerableResultRequest() {
+        private System.Xml.Linq.XElement any1Field;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyElementAttribute(Namespace="http://www.w3.org/2001/XMLSchema", Order=0)]
+        public System.Xml.Linq.XElement[] Any {
+            get {
+                return this.anyField;
+            }
+            set {
+                this.anyField = value;
+                this.RaisePropertyChanged("Any");
+            }
         }
         
-        public GetIEnumerableResultRequest(string Query) {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyElementAttribute(Namespace="urn:schemas-microsoft-com:xml-diffgram-v1", Order=1)]
+        public System.Xml.Linq.XElement Any1 {
+            get {
+                return this.any1Field;
+            }
+            set {
+                this.any1Field = value;
+                this.RaisePropertyChanged("Any1");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataTableResult", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetDataTableResultRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Query;
+        
+        public GetDataTableResultRequest() {
+        }
+        
+        public GetDataTableResultRequest(string Query) {
             this.Query = Query;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetIEnumerableResultResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetIEnumerableResultResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataTableResultResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetDataTableResultResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public object[] GetIEnumerableResultResult;
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public NatuurApp.ServiceReference1.GetDataTableResultResponseGetDataTableResultResult GetDataTableResultResult;
         
-        public GetIEnumerableResultResponse() {
+        public GetDataTableResultResponse() {
         }
         
-        public GetIEnumerableResultResponse(object[] GetIEnumerableResultResult) {
-            this.GetIEnumerableResultResult = GetIEnumerableResultResult;
+        public GetDataTableResultResponse(NatuurApp.ServiceReference1.GetDataTableResultResponseGetDataTableResultResult GetDataTableResultResult) {
+            this.GetDataTableResultResult = GetDataTableResultResult;
         }
     }
     
@@ -217,19 +269,19 @@ namespace NatuurApp.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetIEnumerableResultCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetDataTableResultCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public GetIEnumerableResultCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public GetDataTableResultCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
-        public NatuurApp.ServiceReference1.GetIEnumerableResultResponse Result {
+        public NatuurApp.ServiceReference1.GetDataTableResultResponse Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((NatuurApp.ServiceReference1.GetIEnumerableResultResponse)(this.results[0]));
+                return ((NatuurApp.ServiceReference1.GetDataTableResultResponse)(this.results[0]));
             }
         }
     }
@@ -256,11 +308,11 @@ namespace NatuurApp.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onExecuteCommandCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetIEnumerableResultDelegate;
+        private BeginOperationDelegate onBeginGetDataTableResultDelegate;
         
-        private EndOperationDelegate onEndGetIEnumerableResultDelegate;
+        private EndOperationDelegate onEndGetDataTableResultDelegate;
         
-        private System.Threading.SendOrPostCallback onGetIEnumerableResultCompletedDelegate;
+        private System.Threading.SendOrPostCallback onGetDataTableResultCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -321,7 +373,7 @@ namespace NatuurApp.ServiceReference1 {
         
         public event System.EventHandler<ExecuteCommandCompletedEventArgs> ExecuteCommandCompleted;
         
-        public event System.EventHandler<GetIEnumerableResultCompletedEventArgs> GetIEnumerableResultCompleted;
+        public event System.EventHandler<GetDataTableResultCompletedEventArgs> GetDataTableResultCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -466,49 +518,49 @@ namespace NatuurApp.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult NatuurApp.ServiceReference1.IService1.BeginGetIEnumerableResult(NatuurApp.ServiceReference1.GetIEnumerableResultRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetIEnumerableResult(request, callback, asyncState);
+        System.IAsyncResult NatuurApp.ServiceReference1.IService1.BeginGetDataTableResult(NatuurApp.ServiceReference1.GetDataTableResultRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetDataTableResult(request, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        NatuurApp.ServiceReference1.GetIEnumerableResultResponse NatuurApp.ServiceReference1.IService1.EndGetIEnumerableResult(System.IAsyncResult result) {
-            return base.Channel.EndGetIEnumerableResult(result);
+        NatuurApp.ServiceReference1.GetDataTableResultResponse NatuurApp.ServiceReference1.IService1.EndGetDataTableResult(System.IAsyncResult result) {
+            return base.Channel.EndGetDataTableResult(result);
         }
         
-        private System.IAsyncResult OnBeginGetIEnumerableResult(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            NatuurApp.ServiceReference1.GetIEnumerableResultRequest request = ((NatuurApp.ServiceReference1.GetIEnumerableResultRequest)(inValues[0]));
-            return ((NatuurApp.ServiceReference1.IService1)(this)).BeginGetIEnumerableResult(request, callback, asyncState);
+        private System.IAsyncResult OnBeginGetDataTableResult(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            NatuurApp.ServiceReference1.GetDataTableResultRequest request = ((NatuurApp.ServiceReference1.GetDataTableResultRequest)(inValues[0]));
+            return ((NatuurApp.ServiceReference1.IService1)(this)).BeginGetDataTableResult(request, callback, asyncState);
         }
         
-        private object[] OnEndGetIEnumerableResult(System.IAsyncResult result) {
-            NatuurApp.ServiceReference1.GetIEnumerableResultResponse retVal = ((NatuurApp.ServiceReference1.IService1)(this)).EndGetIEnumerableResult(result);
+        private object[] OnEndGetDataTableResult(System.IAsyncResult result) {
+            NatuurApp.ServiceReference1.GetDataTableResultResponse retVal = ((NatuurApp.ServiceReference1.IService1)(this)).EndGetDataTableResult(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnGetIEnumerableResultCompleted(object state) {
-            if ((this.GetIEnumerableResultCompleted != null)) {
+        private void OnGetDataTableResultCompleted(object state) {
+            if ((this.GetDataTableResultCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetIEnumerableResultCompleted(this, new GetIEnumerableResultCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.GetDataTableResultCompleted(this, new GetDataTableResultCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void GetIEnumerableResultAsync(NatuurApp.ServiceReference1.GetIEnumerableResultRequest request) {
-            this.GetIEnumerableResultAsync(request, null);
+        public void GetDataTableResultAsync(NatuurApp.ServiceReference1.GetDataTableResultRequest request) {
+            this.GetDataTableResultAsync(request, null);
         }
         
-        public void GetIEnumerableResultAsync(NatuurApp.ServiceReference1.GetIEnumerableResultRequest request, object userState) {
-            if ((this.onBeginGetIEnumerableResultDelegate == null)) {
-                this.onBeginGetIEnumerableResultDelegate = new BeginOperationDelegate(this.OnBeginGetIEnumerableResult);
+        public void GetDataTableResultAsync(NatuurApp.ServiceReference1.GetDataTableResultRequest request, object userState) {
+            if ((this.onBeginGetDataTableResultDelegate == null)) {
+                this.onBeginGetDataTableResultDelegate = new BeginOperationDelegate(this.OnBeginGetDataTableResult);
             }
-            if ((this.onEndGetIEnumerableResultDelegate == null)) {
-                this.onEndGetIEnumerableResultDelegate = new EndOperationDelegate(this.OnEndGetIEnumerableResult);
+            if ((this.onEndGetDataTableResultDelegate == null)) {
+                this.onEndGetDataTableResultDelegate = new EndOperationDelegate(this.OnEndGetDataTableResult);
             }
-            if ((this.onGetIEnumerableResultCompletedDelegate == null)) {
-                this.onGetIEnumerableResultCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetIEnumerableResultCompleted);
+            if ((this.onGetDataTableResultCompletedDelegate == null)) {
+                this.onGetDataTableResultCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDataTableResultCompleted);
             }
-            base.InvokeAsync(this.onBeginGetIEnumerableResultDelegate, new object[] {
-                        request}, this.onEndGetIEnumerableResultDelegate, this.onGetIEnumerableResultCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginGetDataTableResultDelegate, new object[] {
+                        request}, this.onEndGetDataTableResultDelegate, this.onGetDataTableResultCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -626,16 +678,16 @@ namespace NatuurApp.ServiceReference1 {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetIEnumerableResult(NatuurApp.ServiceReference1.GetIEnumerableResultRequest request, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGetDataTableResult(NatuurApp.ServiceReference1.GetDataTableResultRequest request, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = request;
-                System.IAsyncResult _result = base.BeginInvoke("GetIEnumerableResult", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("GetDataTableResult", _args, callback, asyncState);
                 return _result;
             }
             
-            public NatuurApp.ServiceReference1.GetIEnumerableResultResponse EndGetIEnumerableResult(System.IAsyncResult result) {
+            public NatuurApp.ServiceReference1.GetDataTableResultResponse EndGetDataTableResult(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                NatuurApp.ServiceReference1.GetIEnumerableResultResponse _result = ((NatuurApp.ServiceReference1.GetIEnumerableResultResponse)(base.EndInvoke("GetIEnumerableResult", _args, result)));
+                NatuurApp.ServiceReference1.GetDataTableResultResponse _result = ((NatuurApp.ServiceReference1.GetDataTableResultResponse)(base.EndInvoke("GetDataTableResult", _args, result)));
                 return _result;
             }
         }

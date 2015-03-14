@@ -25,6 +25,8 @@ namespace WcfService1
         void ExecuteCommand(string Query);
 
         [OperationContract]
-        IEnumerable GetIEnumerableResult(string Query);
+        DataTable GetDataTableResult(string Query);
+
+        
     }
 }

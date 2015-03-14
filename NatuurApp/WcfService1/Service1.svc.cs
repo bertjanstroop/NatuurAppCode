@@ -59,14 +59,14 @@ namespace WcfService1
         }
 
 
-        public IEnumerable GetIEnumerableResult(string Query)
+        public DataTable GetDataTableResult(string Query)
         {
             DataTable result = new DataTable();
             da = new SqlDataAdapter(Query, cs);
             cs.Open();
             da.Fill(result);
             cs.Close();
-            return (IEnumerable)result;
+            return result;
         }
     }
 }

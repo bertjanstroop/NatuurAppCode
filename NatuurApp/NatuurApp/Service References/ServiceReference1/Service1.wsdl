@@ -4,7 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:1635/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:1635/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:1635/Service1.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1635/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_TestDBConnection_InputMessage">
@@ -25,11 +25,11 @@
   <wsdl:message name="IService1_ExecuteCommand_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExecuteCommandResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetIEnumerableResult_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetIEnumerableResult" />
+  <wsdl:message name="IService1_GetDataTableResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataTableResult" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetIEnumerableResult_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetIEnumerableResultResponse" />
+  <wsdl:message name="IService1_GetDataTableResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataTableResultResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="TestDBConnection">
@@ -44,9 +44,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExecuteCommand" message="tns:IService1_ExecuteCommand_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExecuteCommandResponse" message="tns:IService1_ExecuteCommand_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetIEnumerableResult">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetIEnumerableResult" message="tns:IService1_GetIEnumerableResult_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetIEnumerableResultResponse" message="tns:IService1_GetIEnumerableResult_OutputMessage" />
+    <wsdl:operation name="GetDataTableResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataTableResult" message="tns:IService1_GetDataTableResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataTableResultResponse" message="tns:IService1_GetDataTableResult_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -78,8 +78,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetIEnumerableResult">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetIEnumerableResult" style="document" />
+    <wsdl:operation name="GetDataTableResult">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDataTableResult" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

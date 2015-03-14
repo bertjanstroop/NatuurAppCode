@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NatuurApp.DataAccessLayer
+namespace NatuurApp
 {
-    class DataAccessLayer
+   public class DataAccessLayer
     {
-        private DB db = new DB();
+        private DataAccessLayer dal = new DataAccessLayer();
+        internal DB db = new DB();
         private DataAccessLayer()
         {
 
         }
 
-        public DB GetInstance()
+        public static DataAccessLayer GetInstance
         {
-            if (db == null)
+            get
             {
-                db = new DB();
+                if (dal == null)
+                {
+                    dal = new DataAccessLayer();
+                }
+                return dal;
             }
-            return db;
         }
     }
 }

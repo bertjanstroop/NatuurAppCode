@@ -7,7 +7,8 @@ using System.Data.Linq;
 using System.Data.Linq.Provider;
 using NatuurApp.ServiceReference1;
 using System.Collections;
-namespace NatuurApp.DataAccessLayer
+using Telerik.Data;
+namespace NatuurApp
 {
     public class DB
     {
@@ -15,19 +16,19 @@ namespace NatuurApp.DataAccessLayer
         public DB() { }
         // Create the data context.
 
-        public IEnumerable GetIEnumerableResult(string Query)
+        public IEnumerable GetDataTableResult(string Query)
         {
             IEnumerable result = null;
-            API.GetIEnumerableResultCompleted += new EventHandler<GetIEnumerableResultCompletedEventArgs>(GetIEnumerableResultCompleted);
-            GetIEnumerableResultRequest r = new GetIEnumerableResultRequest();
+            API.GetDataTableResultCompleted += new EventHandler<GetDataTableResultCompletedEventArgs>(GetDataTableResultCompleted);
+            GetDataTableResultRequest r = new GetDataTableResultRequest();
             r.Query = Query;
-            API.GetIEnumerableResultAsync(r);
+            API.GetDataTableResultAsync(r);
             return result;
         }
 
-        static void GetIEnumerableResultCompleted(object sender,GetIEnumerableResultCompletedEventArgs e)
+        static void GetDataTableResultCompleted(object sender, GetDataTableResultCompletedEventArgs e)
         {
-            Values.IEnumerableResult = e.Result.GetIEnumerableResultResult;
+            Values.DataTableResult = e.Result.;
         }
         
         public string GetStringResult(string Query)
@@ -64,6 +65,6 @@ namespace NatuurApp.DataAccessLayer
     {
         public static bool TestConnection { get; set; }
         public static string StringResult { get; set; }
-        public static IEnumerable IEnumerableResult { get; set; }
+        public static DataTable DataTableResult { get; set; }
     }
 }
