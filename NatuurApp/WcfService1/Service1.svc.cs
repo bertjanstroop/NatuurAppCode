@@ -8,7 +8,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections;
-
+using PhoneDataTable;
 namespace WcfService1
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
@@ -60,10 +60,10 @@ namespace WcfService1
         }
 
 
-        public Telerik.Data.DataTable GetDataTable(string Query)
+        public PhoneDataTable.DataTable GetDataTable(string Query)
         {
             System.Data.DataTable tmp = new System.Data.DataTable();
-            Telerik.Data.DataTable result = new Telerik.Data.DataTable();
+            PhoneDataTable.DataTable result = new PhoneDataTable.DataTable();
             da = new SqlDataAdapter(Query, cs);
             cs.Open();
             da.Fill(tmp);
@@ -73,17 +73,17 @@ namespace WcfService1
             return result;
         }
 
-        private static Telerik.Data.DataTable ConverDataTableType(System.Data.DataTable table)
+        private static PhoneDataTable.DataTable ConverDataTableType(System.Data.DataTable table)
         {
-            Telerik.Data.DataTable result = new Telerik.Data.DataTable();
+            PhoneDataTable.DataTable result = new PhoneDataTable.DataTable();
             foreach (System.Data.DataColumn column in table.Columns)
             {
-                result.Columns.Add(new Telerik.Data.DataColumn() {ColumnName=column.ColumnName,DataType=column.DataType });
+                result.Columns.Add(new PhoneDataTable.DataColumn() {ColumnName=column.ColumnName,DataType=column.DataType });
             }
             int count = 0;
             foreach (System.Data.DataRow row in table.Rows)
             {
-                Telerik.Data.DataRow r = new Telerik.Data.DataRow();
+                PhoneDataTable.DataRow r = new PhoneDataTable.DataRow();
                 r.Add(table.Columns[count].ColumnName,table.Rows[0][count]);
                 result.Rows.Add(r);
                 count++;

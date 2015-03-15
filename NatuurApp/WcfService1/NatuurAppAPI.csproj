@@ -72,15 +72,18 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTable\Data.cs" />
-    <Compile Include="DataTable\Dynamic.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneDataTable\PhoneDataTable.csproj">
+      <Project>{90aa468a-7dcb-40da-8aca-263444273d33}</Project>
+      <Name>PhoneDataTable</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

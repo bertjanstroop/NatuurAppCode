@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Dynamic;
 using System.Collections;
 
-namespace Telerik.Data
+namespace PhoneDataTable
 {
     public class DataTable : IEnumerable
     {

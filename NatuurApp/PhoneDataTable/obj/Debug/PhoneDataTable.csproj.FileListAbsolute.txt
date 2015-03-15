@@ -1,0 +1,5 @@
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\PhoneDataTable\bin\Debug\PhoneDataTable.dll
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\PhoneDataTable\bin\Debug\PhoneDataTable.pdb
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\PhoneDataTable\obj\Debug\PhoneDataTable.csprojResolveAssemblyReference.cache
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\PhoneDataTable\obj\Debug\PhoneDataTable.dll
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\PhoneDataTable\obj\Debug\PhoneDataTable.pdb

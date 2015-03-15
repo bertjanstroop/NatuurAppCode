@@ -7,7 +7,7 @@ using System.Data.Linq;
 using System.Data.Linq.Provider;
 using NatuurApp.ServiceReference1;
 using System.Collections;
-using Telerik.Data;
+
 namespace NatuurApp
 {
     public class DB
@@ -16,7 +16,7 @@ namespace NatuurApp
         public DB() { }
         // Create the data context.
 
-        public IEnumerable GetDataTableResult(string Query)
+        public GetDataTableResult(string Query)
         {
             IEnumerable result = null;
             API.GetDataTableCompleted += new EventHandler<GetDataTableCompletedEventArgs>(GetDataTableCompleted);
