@@ -25,7 +25,7 @@ namespace WcfService1
         void ExecuteCommand(string Query);
 
         [OperationContract]
-        DataTable GetDataTableResult(string Query);
+        Telerik.Data.DataTable GetDataTable(string Query);
 
         
     }

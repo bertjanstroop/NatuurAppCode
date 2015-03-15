@@ -1,9 +1,0 @@
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\UnitTestProject1\bin\Debug\ApplicationIcon.png
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\UnitTestProject1\bin\Debug\Background.png
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\UnitTestProject1\bin\Debug\UnitTestProject1.dll
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\UnitTestProject1\bin\Debug\NatuurApp.dll
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\UnitTestProject1\bin\Debug\NatuurApp.pdb
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\UnitTestProject1\obj\Debug\UnitTestProject1.dll
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\UnitTestProject1\obj\Debug\UnitTestProject1.pdb

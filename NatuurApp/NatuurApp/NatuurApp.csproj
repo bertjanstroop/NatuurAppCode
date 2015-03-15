@@ -50,9 +50,6 @@
   <ItemGroup>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Interop" />
-    <Reference Include="SilverlightDataTable">
-      <HintPath>DLL\SilverlightDataTable.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations">
       <HintPath>DLL\System.ComponentModel.DataAnnotations.dll</HintPath>
     </Reference>
@@ -70,18 +67,6 @@
     <Reference Include="mscorlib.extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml.Serialization" />
-    <Reference Include="Telerik.Windows.Controls">
-      <HintPath>DLL\Telerik.Windows.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Windows.Controls.GridView">
-      <HintPath>DLL\Telerik.Windows.Controls.GridView.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Windows.Controls.Input">
-      <HintPath>DLL\Telerik.Windows.Controls.Input.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Windows.Data">
-      <HintPath>DLL\Telerik.Windows.Data.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -122,18 +107,6 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
-    <None Include="Service References\ServiceReference1\NatuurApp.ServiceReference1.ExecuteCommandResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\NatuurApp.ServiceReference1.GetDataTableResultResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\NatuurApp.ServiceReference1.GetStringResultResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\NatuurApp.ServiceReference1.TestDBConnectionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServiceReference1\Service1.wsdl" />
     <None Include="Service References\ServiceReference1\Service1.xsd">
       <SubType>Designer</SubType>
@@ -168,7 +141,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

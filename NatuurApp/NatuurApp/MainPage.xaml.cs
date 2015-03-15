@@ -10,15 +10,22 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using NatuurApp.BusinessLogicLayer;
 namespace NatuurApp
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        AreaViewController AVC = new AreaViewController();
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-            
+            Init();
+        }
+
+        private void Init()
+        {
+            AVC.GetAreaObjectByAreaID("1");
         }
     }
 }

@@ -14,7 +14,7 @@ namespace NatuurApp
 
         }
 
-        public static DataAccessLayer GetInstance
+        public DataAccessLayer GetInstance
         {
             get
             {

@@ -19,16 +19,16 @@ namespace NatuurApp
         public IEnumerable GetDataTableResult(string Query)
         {
             IEnumerable result = null;
-            API.GetDataTableResultCompleted += new EventHandler<GetDataTableResultCompletedEventArgs>(GetDataTableResultCompleted);
-            GetDataTableResultRequest r = new GetDataTableResultRequest();
+            API.GetDataTableCompleted += new EventHandler<GetDataTableCompletedEventArgs>(GetDataTableCompleted);
+            GetDataTableRequest r = new GetDataTableRequest();
             r.Query = Query;
-            API.GetDataTableResultAsync(r);
+            API.GetDataTableAsync(r);
             return result;
         }
 
-        static void GetDataTableResultCompleted(object sender, GetDataTableResultCompletedEventArgs e)
+        static void GetDataTableCompleted(object sender, GetDataTableCompletedEventArgs e)
         {
-            Values.DataTableResult = e.Result.;
+            Values.DataTableResult = e.Result.GetDataTableResult;
         }
         
         public string GetStringResult(string Query)
