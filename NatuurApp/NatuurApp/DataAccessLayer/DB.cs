@@ -14,11 +14,19 @@ namespace NatuurApp
     {
         private Service1Client API = new Service1Client();
         public DB() { }
+
         // Create the data context.
         public DataClass.NatureArea GetNatureAreaByID(string AreaID)
         {
-            API.GetNatureAreaByIDCompleted += new EventHandler<GetNatureAreaByIDCompletedEventArgs>(GetNatureAreaByIDCompleted);
+            //set bool to false at start off methode
+            Values.APIDone = false;
+            API.GetNatureAreaByIDCompleted += GetNatureAreaByIDCompleted;
             API.GetNatureAreaByIDAsync(AreaID);
+            while (!Values.APIDone)
+            {
+                if (Values.APIDone)
+                    break;
+            }
             return Values.Value;
         }
 
@@ -32,12 +40,19 @@ namespace NatuurApp
             Values.Value.Longitude = e.Result.Longitude;
             Values.Value.Location = e.Result.Location;
             Values.Value.BestSeason = e.Result.BestSeason;
+            Values.APIDone = true;
         }
 
-        public Link<DataClass.NatureArea> GetNatureAreaList()
+        public List<DataClass.NatureArea> GetNatureAreaList()
         {
-            API.GetNatureAreasCompleted += new EventHandler<GetNatureAreasCompletedEventArgs>(GetNatureAreaListCompleted);
-            API.GetNatureAreasAsync();
+            Values.APIDone = false;
+            API.GetNatureAreasCompleted += GetNatureAreaListCompleted;
+            //API.GetNatureAreasAsync();
+            //while (!Values.APIDone)
+            //{
+            //    if (Values.APIDone)
+            //        break;
+            //}
             return Values.ListValue;
         }
 
@@ -58,12 +73,16 @@ namespace NatuurApp
                 Nalist.Add(NA);
             }
             Values.ListValue = Nalist;
+            Values.APIDone = true;
         }
+
+
     }
 
     public static class Values
     {
         public static DataClass.NatureArea Value { get; set; }
-        public static Link<DataClass.NatureArea> ListValue { get; set; }
+        public static List<DataClass.NatureArea> ListValue { get; set; }
+        public static bool APIDone = false;
     }
 }

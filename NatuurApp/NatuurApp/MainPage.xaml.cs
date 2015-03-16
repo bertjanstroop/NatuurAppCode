@@ -16,16 +16,17 @@ namespace NatuurApp
     public partial class MainPage : PhoneApplicationPage
     {
         AreaViewController AVC = new AreaViewController();
+        DataAccessLayer dal;
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-            Init();
+
         }
 
-        private void Init()
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            AVC.GetAreaObjectByAreaID("1");
+            var test = DataAccessLayer.GetInstance.db.GetNatureAreaList();
         }
     }
 }

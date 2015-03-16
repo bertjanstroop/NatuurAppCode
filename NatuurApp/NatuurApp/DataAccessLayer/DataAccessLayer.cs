@@ -7,14 +7,10 @@ namespace NatuurApp
 {
    public class DataAccessLayer
     {
-        private DataAccessLayer dal = new DataAccessLayer();
+        private static DataAccessLayer dal = new DataAccessLayer();
         internal DB db = new DB();
-        private DataAccessLayer()
-        {
-
-        }
-
-        public DataAccessLayer GetInstance
+        private DataAccessLayer() { }
+        public static DataAccessLayer GetInstance
         {
             get
             {
