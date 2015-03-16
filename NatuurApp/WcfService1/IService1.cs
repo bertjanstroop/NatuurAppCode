@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using PhoneDataTable;
+
 namespace WcfService1
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
@@ -25,8 +25,13 @@ namespace WcfService1
         void ExecuteCommand(string Query);
 
         [OperationContract]
-        PhoneDataTable.DataTable GetDataTable(string Query);
+        DataClass.NatureArea GetNatureAreaByID(string AreaID);
 
-        
+        [OperationContract]
+        List<DataClass.NatureArea> GetNatureAreas();
+
+        [OperationContract]
+        DataClass.NatureAreaFoto GetNatureAreaFotoByID(string AreaID);
+
     }
 }

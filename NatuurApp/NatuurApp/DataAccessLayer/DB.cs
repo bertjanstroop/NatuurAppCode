@@ -16,7 +16,7 @@ namespace NatuurApp
         public DB() { }
         // Create the data context.
 
-        public GetDataTableResult(string Query)
+        public IEnumerable GetDataTableResult(string Query)
         {
             IEnumerable result = null;
             API.GetDataTableCompleted += new EventHandler<GetDataTableCompletedEventArgs>(GetDataTableCompleted);

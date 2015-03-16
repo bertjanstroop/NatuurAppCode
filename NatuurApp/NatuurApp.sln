@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NatuurAppAPI", "WcfService1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{164F85A3-37D2-4A8F-BCED-DDEA92ABB100}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneDataTable", "PhoneDataTable\PhoneDataTable.csproj", "{90AA468A-7DCB-40DA-8ACA-263444273D33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataClass", "DataClass\DataClass.csproj", "{E5153BA6-4F80-4041-B3AF-B0C50E0E732B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +32,10 @@ Global
 		{164F85A3-37D2-4A8F-BCED-DDEA92ABB100}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{164F85A3-37D2-4A8F-BCED-DDEA92ABB100}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{164F85A3-37D2-4A8F-BCED-DDEA92ABB100}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90AA468A-7DCB-40DA-8ACA-263444273D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90AA468A-7DCB-40DA-8ACA-263444273D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90AA468A-7DCB-40DA-8ACA-263444273D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90AA468A-7DCB-40DA-8ACA-263444273D33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5153BA6-4F80-4041-B3AF-B0C50E0E732B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5153BA6-4F80-4041-B3AF-B0C50E0E732B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5153BA6-4F80-4041-B3AF-B0C50E0E732B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5153BA6-4F80-4041-B3AF-B0C50E0E732B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
