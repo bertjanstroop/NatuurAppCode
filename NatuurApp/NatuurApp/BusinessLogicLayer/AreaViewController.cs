@@ -16,10 +16,7 @@ namespace NatuurApp.BusinessLogicLayer
 
         public AreaViewObject GetAreaObjectByAreaID(string ID)
         {
-            AreaViewObject AVO = new AreaViewObject();
-            string Query = "select * from tbl_NatureArea where AreaID='" + ID + "'";
-            DataTable tmp = DataAccessLayer.GetInstance.db.GetDataTable(Query);
-            return AVO;
+            throw new NotImplementedException();
         }
     }
 }

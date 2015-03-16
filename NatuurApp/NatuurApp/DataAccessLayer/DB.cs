@@ -15,56 +15,55 @@ namespace NatuurApp
         private Service1Client API = new Service1Client();
         public DB() { }
         // Create the data context.
-
-        public IEnumerable GetDataTableResult(string Query)
+        public DataClass.NatureArea GetNatureAreaByID(string AreaID)
         {
-            IEnumerable result = null;
-            API.GetDataTableCompleted += new EventHandler<GetDataTableCompletedEventArgs>(GetDataTableCompleted);
-            GetDataTableRequest r = new GetDataTableRequest();
-            r.Query = Query;
-            API.GetDataTableAsync(r);
-            return result;
+            API.GetNatureAreaByIDCompleted += new EventHandler<GetNatureAreaByIDCompletedEventArgs>(GetNatureAreaByIDCompleted);
+            API.GetNatureAreaByIDAsync(AreaID);
+            return Values.Value;
         }
 
-        static void GetDataTableCompleted(object sender, GetDataTableCompletedEventArgs e)
+        static void GetNatureAreaByIDCompleted(object sender, GetNatureAreaByIDCompletedEventArgs e)
         {
-            Values.DataTableResult = e.Result.GetDataTableResult;
-        }
-        
-        public string GetStringResult(string Query)
-        {
-            string result = string.Empty;
-            API.GetStringResultCompleted += new EventHandler<GetStringResultCompletedEventArgs>(GetStringResultCompleted);
-            GetStringResultRequest r = new GetStringResultRequest();
-            r.Query = Query;
-            API.GetStringResultAsync(r);
-            result = Values.StringResult;
-            return result;
+            Values.Value.AreaID = e.Result.AreaID;
+            Values.Value.AreaName = e.Result.AreaName;
+            Values.Value.BriefDescription = e.Result.BriefDescription;
+            Values.Value.ExtendedDescription = e.Result.ExtendedDescription;
+            Values.Value.Latitude = e.Result.Latitude;
+            Values.Value.Longitude = e.Result.Longitude;
+            Values.Value.Location = e.Result.Location;
+            Values.Value.BestSeason = e.Result.BestSeason;
         }
 
-        static void GetStringResultCompleted(object sender, GetStringResultCompletedEventArgs e)
+        public Link<DataClass.NatureArea> GetNatureAreaList()
         {
-            Values.StringResult = e.Result.GetStringResultResult;
+            API.GetNatureAreasCompleted += new EventHandler<GetNatureAreasCompletedEventArgs>(GetNatureAreaListCompleted);
+            API.GetNatureAreasAsync();
+            return Values.ListValue;
         }
 
-        public bool TestConnection()
+        private void GetNatureAreaListCompleted(object sender, GetNatureAreasCompletedEventArgs e)
         {
-            bool result = true;
-            API.TestDBConnectionCompleted += new EventHandler<TestDBConnectionCompletedEventArgs>(testConnectionCompleted);
-            API.TestDBConnectionAsync(new TestDBConnectionRequest());
-            return result;
-        }
-
-        static void testConnectionCompleted(object sender, TestDBConnectionCompletedEventArgs e)
-        {
-            Values.TestConnection = e.Result.TestDBConnectionResult;
+            List<DataClass.NatureArea> Nalist = new List<DataClass.NatureArea>();
+            foreach (var item in e.Result)
+            {
+                DataClass.NatureArea NA = new DataClass.NatureArea();
+                NA.AreaID = item.AreaID;
+                NA.AreaName = item.AreaName;
+                NA.BriefDescription = item.BriefDescription;
+                NA.ExtendedDescription = item.ExtendedDescription;
+                NA.Latitude = item.Latitude;
+                NA.Longitude = item.Longitude;
+                NA.Location = item.Location;
+                NA.BestSeason = item.BestSeason;
+                Nalist.Add(NA);
+            }
+            Values.ListValue = Nalist;
         }
     }
 
     public static class Values
     {
-        public static bool TestConnection { get; set; }
-        public static string StringResult { get; set; }
-        public static DataTable DataTableResult { get; set; }
+        public static DataClass.NatureArea Value { get; set; }
+        public static Link<DataClass.NatureArea> ListValue { get; set; }
     }
 }
