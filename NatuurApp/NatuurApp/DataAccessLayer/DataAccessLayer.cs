@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NatuurApp
+namespace NatuurApp.DataAccessLayer
 {
    public class DataAccessLayer
     {
         private DataAccessLayer dal = new DataAccessLayer();
-        internal DB db = new DB();
+        //internal APIDB db = new APIDB();
         private DataAccessLayer()
         {
 

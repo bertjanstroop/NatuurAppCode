@@ -9,6 +9,7 @@ namespace DataClass
 {
    public class NatureAreaFoto
     {
+        public int ID { get; set; }
         public int AreaID { get; set; }
         public object Image1;
         public object Image2;

@@ -73,13 +73,14 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BusinessLogicLayer\AreaViewController.cs" />
+    <Compile Include="DataAccessLayer\EmbededDB.cs" />
+    <Compile Include="DataContext\Database.cs" />
     <Compile Include="GUI\AreaListItem.xaml.cs">
       <DependentUpon>AreaListItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="BusinessLogicLayer\AreaListObject.cs" />
     <Compile Include="BusinessLogicLayer\AreaViewObject.cs" />
     <Compile Include="DataAccessLayer\DataAccessLayer.cs" />
-    <Compile Include="DataAccessLayer\DB.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -146,12 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataClass\DataClass.csproj">
-      <Project>{E5153BA6-4F80-4041-B3AF-B0C50E0E732B}</Project>
-      <Name>DataClass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

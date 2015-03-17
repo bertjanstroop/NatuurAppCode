@@ -10,10 +10,10 @@ using System.Collections;
 
 namespace NatuurApp
 {
-    public class DB
+    public class APIDB
     {
         private Service1Client API = new Service1Client();
-        public DB() { }
+        public APIDB() { }
         // Create the data context.
         public DataClass.NatureArea GetNatureAreaByID(string AreaID)
         {

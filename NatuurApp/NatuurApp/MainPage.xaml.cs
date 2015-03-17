@@ -25,7 +25,8 @@ namespace NatuurApp
 
         private void Init()
         {
-            AVC.GetAreaObjectByAreaID("1");
+            DataAccessLayer.EmbededDB edb = new DataAccessLayer.EmbededDB();
+            var tmp = edb.GetAreaList();
         }
     }
 }
