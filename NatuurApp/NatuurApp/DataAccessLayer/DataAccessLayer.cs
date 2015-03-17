@@ -5,29 +5,19 @@ using System.Text;
 
 namespace NatuurApp.DataAccessLayer
 {
-   public class DataAccessLayer
-    {
-<<<<<<< HEAD
-        private DataAccessLayer dal = new DataAccessLayer();
+   public class DataAccess
+   {
+        private static DataAccess dal = new DataAccess();
         //internal APIDB db = new APIDB();
-        private DataAccessLayer()
-        {
-
-        }
-
-        public DataAccessLayer GetInstance
-=======
-        private static DataAccessLayer dal = new DataAccessLayer();
-        internal DB db = new DB();
-        private DataAccessLayer() { }
-        public static DataAccessLayer GetInstance
->>>>>>> origin/master
+        EmbededDB EDB = new EmbededDB();
+        private DataAccess() { }
+        public static DataAccess GetInstance
         {
             get
             {
                 if (dal == null)
                 {
-                    dal = new DataAccessLayer();
+                    dal = new DataAccess();
                 }
                 return dal;
             }

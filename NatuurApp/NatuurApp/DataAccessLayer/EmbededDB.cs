@@ -12,7 +12,7 @@ namespace NatuurApp.DataAccessLayer
         public EmbededDB()
         {
             //Init();
-            BuildDataBase();
+            //BuildDataBase();
         }
 
         private void Init()
@@ -37,6 +37,19 @@ namespace NatuurApp.DataAccessLayer
                     context.CreateDatabase();
             }
             TestInsertNatureArea();
+        }
+
+        public tbl_NatureArea GetAreaByID(int ID)
+        {
+            tbl_NatureArea result = new tbl_NatureArea();
+            using (var context = new tbl_NatureAreaDataContext(ConnectionString))
+            {
+                var tmp = (from s in context.tbl_NatureArea
+                          where s.AreaID == ID
+                          select s).First();
+                result = tmp;
+            }
+            return result;
         }
 
         public List<tbl_NatureArea> GetAreaList()
