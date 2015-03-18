@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using NatuurApp.DataAccessLayer.db;
 namespace NatuurApp.DataAccessLayer
 {
-   public class DataAccess
+   public sealed class DataAccess
    {
-        private static DataAccess dal = new DataAccess();
-        //internal APIDB db = new APIDB();
-        EmbededDB EDB = new EmbededDB();
-        private DataAccess() { }
-        public static DataAccess GetInstance
-        {
-            get
-            {
-                if (dal == null)
-                {
-                    dal = new DataAccess();
-                }
-                return dal;
-            }
-        }
-    }
+       private static readonly DataAccess instance = new DataAccess();
+       internal EmbededDB db = new EmbededDB();
+       private DataAccess() {}
+
+       public static DataAccess GetInstance
+       {
+           get
+           {
+               return instance;
+           }
+       }
+   }
 }

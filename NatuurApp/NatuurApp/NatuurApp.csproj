@@ -72,24 +72,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BusinessLogicLayer\AreaListController.cs" />
     <Compile Include="BusinessLogicLayer\AreaViewController.cs" />
     <Compile Include="DataAccessLayer\EmbededDB.cs" />
     <Compile Include="DataContext\Database.cs" />
     <Compile Include="GUI\AreaListItem.xaml.cs">
       <DependentUpon>AreaListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BusinessLogicLayer\AreaListObject.cs" />
-    <Compile Include="BusinessLogicLayer\AreaViewObject.cs" />
     <Compile Include="DataAccessLayer\DataAccessLayer.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -108,46 +102,24 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
-    <None Include="Service References\ServiceReference1\NatuurApp.ServiceReference1.NatureArea.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\NatuurApp.ServiceReference1.NatureAreaFoto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\Service1.wsdl" />
-    <None Include="Service References\ServiceReference1\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\Service11.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\Service12.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="App_data\DePut1.jpg" />
+    <EmbeddedResource Include="App_data\DePut2.jpg" />
+    <EmbeddedResource Include="App_data\DePut3.jpg" />
+    <EmbeddedResource Include="App_data\DePut4.jpg" />
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\ServiceReference1\Service1.disco" />
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

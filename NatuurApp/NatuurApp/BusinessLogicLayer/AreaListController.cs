@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data;
 using NatuurApp.DataAccessLayer;
-
+using System.Windows.Controls;
 namespace NatuurApp.BusinessLogicLayer
 {
-    class AreaViewController
+    class AreaListController
     {
-        public AreaViewController()
+        public AreaListController()
         {
-            
+
         }
 
-        public tbl_NatureArea GetAreaByID(int ID)
+        public List<tbl_NatureArea> GetAreaList()
         {
-            return DataAccess.GetInstance.db.GetAreaByID(ID);
+            return DataAccess.GetInstance.db.GetAreaList();
         }
 
         public tbl_NatureAreaFoto GetAreaFotoByID(int AreaID)

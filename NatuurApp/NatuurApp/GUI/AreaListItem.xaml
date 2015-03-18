@@ -7,11 +7,23 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}" Height="187.761" Width="768.06">
-    
+
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-        <Image Name="AreaImage" HorizontalAlignment="Left" Height="168" Margin="574,10,0,0" VerticalAlignment="Top" Width="184"/>
-        <TextBox Name="AreaName" IsHitTestVisible="False" Text="PlaceHolder" Margin="10,0,429,119" IsReadOnly="False"/>
-        <TextBox Name="AreaShortDescription" Text="PlaceHolder" IsHitTestVisible="False" Margin="10,53,429,62" IsReadOnly="False"/>
-        <TextBox Name="AreaLocation" HorizontalAlignment="Left" Height="66" Margin="10,113,0,0" TextWrapping="Wrap" Text="PlaceHolder" VerticalAlignment="Top" Width="329"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Name="AreaImage" HorizontalAlignment="Left" Height="168" VerticalAlignment="Top" MinWidth="216" Width="216" Grid.ColumnSpan="2" Grid.Column="2" Margin="158,10,0,0" Grid.RowSpan="4"/>
+        <TextBox Name="AreaName" IsHitTestVisible="False" MinHeight="26" Text="PlaceHolder" IsReadOnly="False" Grid.ColumnSpan="2" Margin="10,0,10,26" Grid.RowSpan="2"/>
+        <TextBox Name="AreaShortDescription" Text="PlaceHolder" IsHitTestVisible="False" MinHeight="26" IsReadOnly="False" Grid.ColumnSpan="2" Margin="10,0,10,20" Grid.Row="1" Grid.RowSpan="2"/>
+        <TextBox Name="AreaLocation" HorizontalAlignment="Left" Height="66" TextWrapping="Wrap" Text="PlaceHolder" VerticalAlignment="Bottom" Width="364" Grid.ColumnSpan="2" Margin="10,0,0,18" Grid.Row="2" Grid.RowSpan="2"/>
     </Grid>
 </UserControl>

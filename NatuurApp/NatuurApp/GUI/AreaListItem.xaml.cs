@@ -12,6 +12,7 @@ namespace NatuurApp
 {
     public partial class AreaListItem : UserControl
     {
+        public int AreaID { get; set; }
         public AreaListItem()
         {
             InitializeComponent();

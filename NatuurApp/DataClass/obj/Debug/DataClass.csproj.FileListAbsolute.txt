@@ -1,4 +1,0 @@
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\DataClass\bin\Debug\DataClass.dll
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\DataClass\bin\Debug\DataClass.pdb
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\DataClass\obj\Debug\DataClass.dll
-C:\NatuurAppCode\NatuurAppCode\NatuurApp\DataClass\obj\Debug\DataClass.pdb

@@ -1,7 +1,8 @@
 ﻿using System.Data.Linq;
 using System.Data.Linq.Mapping;
+using System.Windows.Controls;
 
-namespace NatuurApp.DataAccessLayer
+namespace NatuurApp
 {
     [Table(Name = "tbl_NatureArea")]
     public  class tbl_NatureArea
@@ -41,38 +42,41 @@ namespace NatuurApp.DataAccessLayer
         public int AreaID { get; set; }
 
         [Column(CanBeNull = false)]
-        public object Image1 {get;set;}
+        public byte[] Image1 {get;set;}
 
         [Column(CanBeNull = false)]
-        public object Image2 { get; set; }
+        public byte[] Image2 { get; set; }
 
         [Column(CanBeNull = false)]
-        public object Image3 { get; set; }
+        public byte[] Image3 { get; set; }
 
         [Column(CanBeNull = false)]
-        public object Image4 { get; set; }
+        public byte[] Image4 { get; set; }
     }
-    public class tbl_NatureAreaDataContext:DataContext
+    namespace NatuurApp.DataAccessLayer
     {
-        //public const string ConnectionString = "isostore:/database.sdf";
-        public Table<tbl_NatureArea> tbl_NatureArea { get; set; }
-
-        public tbl_NatureAreaDataContext(string connectionString)
-            : base(connectionString)
+        public class tbl_NatureAreaDataContext : DataContext
         {
-            this.tbl_NatureArea = this.GetTable<tbl_NatureArea>();
+            //public const string ConnectionString = "isostore:/database.sdf";
+            public Table<tbl_NatureArea> tbl_NatureArea { get; set; }
+
+            public tbl_NatureAreaDataContext(string connectionString)
+                : base(connectionString)
+            {
+                this.tbl_NatureArea = this.GetTable<tbl_NatureArea>();
+            }
         }
-    }
 
-    public class tbl_NatureAreaFotoDataContext : DataContext
-    {
-                //public const string ConnectionString = "isostore:/database.sdf";
-        public Table<tbl_NatureAreaFoto> tbl_NatureAreaFoto { get; set; }
-
-        public tbl_NatureAreaFotoDataContext(string connectionString)
-            : base(connectionString)
+        public class tbl_NatureAreaFotoDataContext : DataContext
         {
-            this.tbl_NatureAreaFoto = this.GetTable<tbl_NatureAreaFoto>();
-        }
+            //public const string ConnectionString = "isostore:/database.sdf";
+            public Table<tbl_NatureAreaFoto> tbl_NatureAreaFoto { get; set; }
+
+            public tbl_NatureAreaFotoDataContext(string connectionString)
+                : base(connectionString)
+            {
+                this.tbl_NatureAreaFoto = this.GetTable<tbl_NatureAreaFoto>();
+            }
+        } 
     }
 }
