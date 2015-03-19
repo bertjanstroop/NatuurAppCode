@@ -21,7 +21,6 @@ namespace NatuurApp.DataAccessLayer.db
         public EmbededDB()
         {
             Init();
-            
         }
 
         private void Init()
@@ -39,7 +38,8 @@ namespace NatuurApp.DataAccessLayer.db
                         stream.CopyTo(fileStream);
                     } 
                 }
-
+                //TestInsertNatureArea();
+                //TestInsertNatureAreaFoto();
             }
         }
 
@@ -62,19 +62,10 @@ namespace NatuurApp.DataAccessLayer.db
             using (var context = new tbl_NatureAreaDataContext(ConnectionString))
             {
                 var tmp = from s in context.tbl_NatureArea
-                              select s;
-                try
-                {
-                    result = tmp.ToList();
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.ToString()); 
-                    throw;
-                }
-               
+                          select s;
+                result = tmp.ToList();
             }
-            
+
             return result;
         }
 
@@ -123,6 +114,19 @@ namespace NatuurApp.DataAccessLayer.db
             {
                 MessageBox.Show(ex.ToString());
                 throw;
+            }
+        }
+
+        public void InsertArea(string Name, string Description, string Location)
+        {
+            tbl_NatureArea t = new tbl_NatureArea();
+            t.AreaName = Name;
+            t.BriefDescription = Description;
+            t.Location = Location;
+            using (var context = new tbl_NatureAreaDataContext(ConnectionString))
+            {
+                context.tbl_NatureArea.InsertOnSubmit(t);
+                context.SubmitChanges();
             }
         }
 
