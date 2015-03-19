@@ -1,4 +1,4 @@
-﻿#define DeleteDB
+﻿//#define DeleteDB
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.IO.IsolatedStorage;
 using System.IO;
 using System.Reflection;
-using NatuurApp.NatuurApp.DataAccessLayer;
+using NatuurApp.DataAccessLayer;
 using System.Windows.Controls;
 using System.Data.Linq;
 using System.Windows.Media.Imaging;
@@ -38,17 +38,15 @@ namespace NatuurApp.DataAccessLayer.db
                         stream.CopyTo(fileStream);
                     } 
                 }
-                //TestInsertNatureArea();
-                //TestInsertNatureAreaFoto();
             }
         }
 
-        public tbl_NatureArea GetAreaByID(int ID)
+        public Tbl_NatureArea GetAreaByID(int ID)
         {
-            tbl_NatureArea result = new tbl_NatureArea();
-            using (var context = new tbl_NatureAreaDataContext(ConnectionString))
+            Tbl_NatureArea result = new Tbl_NatureArea();
+            using (var context = new databaseContext(ConnectionString))
             {
-                var tmp = (from s in context.tbl_NatureArea
+                var tmp = (from s in context.Tbl_NatureArea
                           where s.AreaID == ID
                           select s).First();
                 result = tmp;
@@ -56,28 +54,31 @@ namespace NatuurApp.DataAccessLayer.db
             return result;
         }
 
-        public List<tbl_NatureArea> GetAreaList()
+        public List<Tbl_NatureArea> GetAreaList()
         {
-            List<tbl_NatureArea> result = new List<tbl_NatureArea>();
-            using (var context = new tbl_NatureAreaDataContext(ConnectionString))
+            List<Tbl_NatureArea> result = new List<Tbl_NatureArea>();
+            using (var context = new databaseContext(ConnectionString))
             {
-                var tmp = from s in context.tbl_NatureArea
+                var tmp = from s in context.Tbl_NatureArea
                           select s;
-                result = tmp.ToList();
+                foreach (Tbl_NatureArea item in tmp)
+                {
+                    result.Add(item);
+                }
             }
 
             return result;
         }
 
-        public tbl_NatureAreaFoto GetAreaFotoByID(int AreaID)
+        public Tbl_NatureAreaFoto GetAreaFotoByID(int AreaID)
         {
-            tbl_NatureAreaFoto result = new tbl_NatureAreaFoto();
+            Tbl_NatureAreaFoto result = new Tbl_NatureAreaFoto();
             try
             {
                 
-                using (var context = new tbl_NatureAreaFotoDataContext(ConnectionString))
+                using (var context = new databaseContext(ConnectionString))
                 {
-                    var tmp = (from s in context.tbl_NatureAreaFoto
+                    var tmp = (from s in context.Tbl_NatureAreaFoto
                                where s.AreaID == AreaID
                                select s).First();
                     result = tmp;
@@ -95,18 +96,18 @@ namespace NatuurApp.DataAccessLayer.db
         {
             try
             {
-                tbl_NatureArea t = new tbl_NatureArea();
+                Tbl_NatureArea t = new Tbl_NatureArea();
                 t.AreaID = 1;
                 t.AreaName = "De Put";
                 t.BriefDescription = "Zand Winnings Plaats";
                 t.ExtendedDescription = "De put is een natuurgebied dat tot stand is gekomen door de benodigheid van zand in de omgeving";
-                t.Latitude = "34";
-                t.Longitude = "56";
+                t.Latitude = 34;
+                t.Longitude = 56;
                 t.Location = "Wagenberg";
                 t.BestSeason = "Heel het jaar";
-                using (var context = new tbl_NatureAreaDataContext(ConnectionString))
+                using (var context = new databaseContext(ConnectionString))
                 {
-                    context.tbl_NatureArea.InsertOnSubmit(t);
+                    context.Tbl_NatureArea.InsertOnSubmit(t);
                     context.SubmitChanges();
                 }
             }
@@ -119,13 +120,13 @@ namespace NatuurApp.DataAccessLayer.db
 
         public void InsertArea(string Name, string Description, string Location)
         {
-            tbl_NatureArea t = new tbl_NatureArea();
+            Tbl_NatureArea t = new Tbl_NatureArea();
             t.AreaName = Name;
             t.BriefDescription = Description;
             t.Location = Location;
-            using (var context = new tbl_NatureAreaDataContext(ConnectionString))
+            using (var context = new databaseContext(ConnectionString))
             {
-                context.tbl_NatureArea.InsertOnSubmit(t);
+                context.Tbl_NatureArea.InsertOnSubmit(t);
                 context.SubmitChanges();
             }
         }
@@ -134,7 +135,7 @@ namespace NatuurApp.DataAccessLayer.db
         {
             try
             {
-                tbl_NatureAreaFoto t = new tbl_NatureAreaFoto();
+                Tbl_NatureAreaFoto t = new Tbl_NatureAreaFoto();
                 t.AreaID = 1;
 
                 var DePut1 = @"Resources/DePut1.jpg";
@@ -173,9 +174,9 @@ namespace NatuurApp.DataAccessLayer.db
                     stream.Read(buffer, 0, buffer.Count());
                     t.Image4 = buffer;
                 }
-                using (var context = new tbl_NatureAreaFotoDataContext(ConnectionString))
+                using (var context = new databaseContext(ConnectionString))
                 {
-                    context.tbl_NatureAreaFoto.InsertOnSubmit(t);
+                    context.Tbl_NatureAreaFoto.InsertOnSubmit(t);
                     context.SubmitChanges();
                 }
             }

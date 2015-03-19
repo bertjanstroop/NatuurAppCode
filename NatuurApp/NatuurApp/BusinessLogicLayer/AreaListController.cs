@@ -13,12 +13,12 @@ namespace NatuurApp.BusinessLogicLayer
 
         }
 
-        public List<tbl_NatureArea> GetAreaList()
+        public List<Tbl_NatureArea> GetAreaList()
         {
             return DataAccess.GetInstance.db.GetAreaList();
         }
 
-        public tbl_NatureAreaFoto GetAreaFotoByID(int AreaID)
+        public Tbl_NatureAreaFoto GetAreaFotoByID(int AreaID)
         {
             return DataAccess.GetInstance.db.GetAreaFotoByID(AreaID);
         }

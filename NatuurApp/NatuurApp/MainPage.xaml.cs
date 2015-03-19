@@ -53,16 +53,17 @@ namespace NatuurApp
         {
             List<AreaListItem> result = new List<AreaListItem>();
             var tmp = ALC.GetAreaList();
-            foreach (tbl_NatureArea item in tmp)
+            foreach (Tbl_NatureArea item in tmp)
             {
                 AreaListItem ali = new AreaListItem();
                 ali.AreaID = item.AreaID;
                 ali.AreaName.Text = item.AreaName;
                 ali.AreaShortDescription.Text = item.BriefDescription;
                 ali.AreaLocation.Text = item.Location;
-                ali.AreaImage.Source = ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1);
+                ali.AreaImage.Source = ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
                 result.Add(ali);
             }
+
             return result;
         }
     }
