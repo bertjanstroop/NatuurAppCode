@@ -8,8 +8,8 @@ namespace NatuurApp.DataAccessLayer
    public sealed class DataAccess
    {
        private static readonly DataAccess instance = new DataAccess();
-       internal EmbededDB db = new EmbededDB();
-       private DataAccess() {}
+       internal EmbededDB db;
+       private DataAccess() { db = new EmbededDB(); }
 
        public static DataAccess GetInstance
        {

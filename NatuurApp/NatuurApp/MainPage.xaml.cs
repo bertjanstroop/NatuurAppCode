@@ -13,7 +13,7 @@ using Microsoft.Phone.Controls;
 using NatuurApp.BusinessLogicLayer;
 using System.Windows.Media.Imaging;
 using System.IO;
-
+using NatuurApp.DataAccessLayer.db;
 namespace NatuurApp
 {
     public partial class MainPage : PhoneApplicationPage
@@ -24,7 +24,7 @@ namespace NatuurApp
         public MainPage()
         {
             InitializeComponent();
-
+            //EmbededDB db = new EmbededDB();
         }
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)

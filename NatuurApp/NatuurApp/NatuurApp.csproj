@@ -107,10 +107,13 @@
     <Content Include="ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="App_data\DePut1.jpg" />
-    <EmbeddedResource Include="App_data\DePut2.jpg" />
-    <EmbeddedResource Include="App_data\DePut3.jpg" />
-    <EmbeddedResource Include="App_data\DePut4.jpg" />
+    <Content Include="Resources\DataBase.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\DePut1.jpg" />
+    <Content Include="Resources\DePut2.jpg" />
+    <Content Include="Resources\DePut3.jpg" />
+    <Content Include="Resources\DePut4.jpg" />
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

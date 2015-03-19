@@ -41,16 +41,16 @@ namespace NatuurApp
         [Column(CanBeNull = false)]
         public int AreaID { get; set; }
 
-        [Column(CanBeNull = false)]
+        [Column(CanBeNull = false, DbType = "image")]
         public byte[] Image1 {get;set;}
 
-        [Column(CanBeNull = false)]
+        [Column(CanBeNull = false, DbType = "image")]
         public byte[] Image2 { get; set; }
 
-        [Column(CanBeNull = false)]
+        [Column(CanBeNull = false, DbType = "image")]
         public byte[] Image3 { get; set; }
 
-        [Column(CanBeNull = false)]
+        [Column(CanBeNull = false, DbType = "image")]
         public byte[] Image4 { get; set; }
     }
     namespace NatuurApp.DataAccessLayer

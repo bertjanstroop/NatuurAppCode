@@ -1,4 +1,4 @@
-﻿//#define DeleteDB
+﻿#define DeleteDB
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,40 +10,36 @@ using NatuurApp.NatuurApp.DataAccessLayer;
 using System.Windows.Controls;
 using System.Data.Linq;
 using System.Windows.Media.Imaging;
+using System.Windows;
+
 namespace NatuurApp.DataAccessLayer.db
 {
    public class EmbededDB
     {
         IsolatedStorageFile ISF = IsolatedStorageFile.GetUserStoreForApplication();
-        private const string ConnectionString = "isostore:/Database.sdf";
+        private const string ConnectionString = "isostore:/DataBase.sdf";
         public EmbededDB()
         {
             Init();
+            
         }
 
         private void Init()
         {
-            using (var context = new tbl_NatureAreaDataContext(ConnectionString))
-            {
-                if (!context.DatabaseExists())
-                {
-                    context.CreateDatabase();
-                    TestInsertNatureArea();
-                }
 #if DeleteDB
-                context.DeleteDatabase();
+            ISF.DeleteFile("DataBase.sdf");
 #endif
-            }
-            using (var context = new tbl_NatureAreaFotoDataContext(ConnectionString))
+            if (!ISF.FileExists("DataBase.sdf"))
             {
-                if (!context.DatabaseExists())
+                var Database = @"Resources/DataBase.sdf";
+                using (Stream stream = Application.GetResourceStream(new Uri(Database, UriKind.Relative)).Stream)
                 {
-                    context.CreateDatabase();
-                    TestInsertNatureAreaFoto();
+                    using (IsolatedStorageFileStream fileStream = ISF.OpenFile("DataBase.sdf", FileMode.Create))
+                    {
+                        stream.CopyTo(fileStream);
+                    } 
                 }
-#if DeleteDB
-                context.DeleteDatabase();
-#endif
+
             }
         }
 
@@ -66,8 +62,17 @@ namespace NatuurApp.DataAccessLayer.db
             using (var context = new tbl_NatureAreaDataContext(ConnectionString))
             {
                 var tmp = from s in context.tbl_NatureArea
-                         select s;
-                result = tmp.ToList();
+                              select s;
+                try
+                {
+                    result = tmp.ToList();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString()); 
+                    throw;
+                }
+               
             }
             
             return result;
@@ -76,82 +81,104 @@ namespace NatuurApp.DataAccessLayer.db
         public tbl_NatureAreaFoto GetAreaFotoByID(int AreaID)
         {
             tbl_NatureAreaFoto result = new tbl_NatureAreaFoto();
-            using (var context = new tbl_NatureAreaFotoDataContext(ConnectionString))
+            try
             {
-                var tmp = (from s in context.tbl_NatureAreaFoto
-                          where s.AreaID == AreaID
-                          select s).First();
-                result = tmp;
+                
+                using (var context = new tbl_NatureAreaFotoDataContext(ConnectionString))
+                {
+                    var tmp = (from s in context.tbl_NatureAreaFoto
+                               where s.AreaID == AreaID
+                               select s).First();
+                    result = tmp;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                throw;
             }
             return result;
         }
 
         private void TestInsertNatureArea()
         {
-            tbl_NatureArea t = new tbl_NatureArea();
-            t.AreaID = 1;
-            t.AreaName = "De Put";
-            t.BriefDescription = "Zand Winnings Plaats";
-            t.ExtendedDescription = "De put is een natuurgebied dat tot stand is gekomen door de benodigheid van zand in de omgeving";
-            t.Latitude = "34";
-            t.Longitude = "56";
-            t.Location = "Wagenberg";
-            t.BestSeason = "Heel het jaar";
-            using(var context = new tbl_NatureAreaDataContext(ConnectionString))
+            try
             {
-                context.tbl_NatureArea.InsertOnSubmit(t);
-                context.SubmitChanges();
+                tbl_NatureArea t = new tbl_NatureArea();
+                t.AreaID = 1;
+                t.AreaName = "De Put";
+                t.BriefDescription = "Zand Winnings Plaats";
+                t.ExtendedDescription = "De put is een natuurgebied dat tot stand is gekomen door de benodigheid van zand in de omgeving";
+                t.Latitude = "34";
+                t.Longitude = "56";
+                t.Location = "Wagenberg";
+                t.BestSeason = "Heel het jaar";
+                using (var context = new tbl_NatureAreaDataContext(ConnectionString))
+                {
+                    context.tbl_NatureArea.InsertOnSubmit(t);
+                    context.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                throw;
             }
         }
 
         private void TestInsertNatureAreaFoto()
         {
-            tbl_NatureAreaFoto t = new tbl_NatureAreaFoto();
-            t.AreaID = 1;
+            try
+            {
+                tbl_NatureAreaFoto t = new tbl_NatureAreaFoto();
+                t.AreaID = 1;
 
-            var assembly1 = Assembly.GetExecutingAssembly();
-            var DePut1 = "NatuurApp.DePut1.jpeg";
-            using (Stream stream = assembly1.GetManifestResourceStream(DePut1))
-            {
-                long size = stream.Length;
-                byte[] buffer = new byte[size];
-                stream.Read(buffer, 0, buffer.Count());
-                t.Image1 = buffer;
-            }
+                var DePut1 = @"Resources/DePut1.jpg";
+                using (Stream stream = Application.GetResourceStream(new Uri(DePut1, UriKind.Relative)).Stream)
+                {
+                    long size = stream.Length;
+                    byte[] buffer = new byte[size];
+                    stream.Read(buffer, 0, buffer.Count());
+                    t.Image1 = buffer;
+                }
 
-            var assembly2 = Assembly.GetExecutingAssembly();
-            var DePut2 = "NatuurApp.DePut2.jpeg";
-            using (Stream stream = assembly2.GetManifestResourceStream(DePut2))
-            {
-                long size = stream.Length;
-                byte[] buffer = new byte[size];
-                stream.Read(buffer, 0, buffer.Count());
-                t.Image2 = buffer;
-            }
+                var DePut2 = @"Resources/DePut2.jpg";
+                using (Stream stream = Application.GetResourceStream(new Uri(DePut2, UriKind.Relative)).Stream)
+                {
+                    long size = stream.Length;
+                    byte[] buffer = new byte[size];
+                    stream.Read(buffer, 0, buffer.Count());
+                    t.Image2 = buffer;
+                }
 
-            var assembly3 = Assembly.GetExecutingAssembly();
-            var DePut3 = "NatuurApp.DePut3.jpeg";
-            using (Stream stream = assembly3.GetManifestResourceStream(DePut3))
-            {
-                long size = stream.Length;
-                byte[] buffer = new byte[size];
-                stream.Read(buffer, 0, buffer.Count());
-                t.Image3 = buffer;
-            }
 
-            var assembly4 = Assembly.GetExecutingAssembly();
-            var DePut4 = "NatuurApp.DePut4.jpeg";
-            using (Stream stream = assembly4.GetManifestResourceStream(DePut4))
-            {
-                long size = stream.Length;
-                byte[] buffer = new byte[size];
-                stream.Read(buffer, 0, buffer.Count());
-                t.Image4 = buffer;
+                var DePut3 = @"Resources/DePut3.jpg";
+                using (Stream stream = Application.GetResourceStream(new Uri(DePut3, UriKind.Relative)).Stream)
+                {
+                    long size = stream.Length;
+                    byte[] buffer = new byte[size];
+                    stream.Read(buffer, 0, buffer.Count());
+                    t.Image3 = buffer;
+                }
+
+                var DePut4 = @"Resources/DePut4.jpg";
+                using (Stream stream = Application.GetResourceStream(new Uri(DePut4, UriKind.Relative)).Stream)
+                {
+                    long size = stream.Length;
+                    byte[] buffer = new byte[size];
+                    stream.Read(buffer, 0, buffer.Count());
+                    t.Image4 = buffer;
+                }
+                using (var context = new tbl_NatureAreaFotoDataContext(ConnectionString))
+                {
+                    context.tbl_NatureAreaFoto.InsertOnSubmit(t);
+                    context.SubmitChanges();
+                }
             }
-            using (var context = new tbl_NatureAreaFotoDataContext(ConnectionString))
+            catch (Exception ex)
             {
-                context.tbl_NatureAreaFoto.InsertOnSubmit(t);
-                context.SubmitChanges();
+                MessageBox.Show(ex.ToString());
+                throw;
             }
         }
     }
