@@ -24,29 +24,28 @@ namespace NatuurApp
         public MainPage()
         {
             InitializeComponent();
-        }
-
-        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
-        {
             LoadListItems();
         }
 
         private void LoadListItems()
         {
             AreaStackPanel.Children.Clear();
+            foreach (var item in AreaStackPanel.Children)
+            {
+                item.Tap -= new EventHandler<GestureEventArgs>(HandleAreaListTap);
+            }
             foreach (var item in CreateListItems())
             {
                 AreaStackPanel.Children.Add(item);
+                item.Tap += new EventHandler<GestureEventArgs>(HandleAreaListTap);
             }
         }
 
-        public static ImageSource ByteToImage(byte[] imageData)
+        private void HandleAreaListTap(object sender, GestureEventArgs e)
         {
-            BitmapImage biImg = new BitmapImage();
-            MemoryStream ms = new MemoryStream(imageData);
-            biImg.SetSource(ms);
-            ImageSource imgSrc = biImg as ImageSource;
-            return imgSrc;
+            var tmp = sender as AreaListItem;
+
+            NavigationService.Navigate(new Uri("/GUI/AreaView.xaml?AreaID=" + tmp.AreaID, UriKind.Relative));
         }
 
         private List<AreaListItem> CreateListItems()
@@ -60,17 +59,12 @@ namespace NatuurApp
                 ali.AreaName.Text = item.AreaName;
                 ali.AreaShortDescription.Text = item.BriefDescription;
                 ali.AreaLocation.Text = item.Location;
-                ali.AreaImage.Source = ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
+                ali.AreaImage.Source = ImageConvert.ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
                 ali.nav = this.NavigationService;
                 result.Add(ali);
             }
 
             return result;
-        }
-
-        private void ShowFullAreaView(int AreaID)
-        {
-
         }
 
         private void btnAddArea_Click(object sender, RoutedEventArgs e)

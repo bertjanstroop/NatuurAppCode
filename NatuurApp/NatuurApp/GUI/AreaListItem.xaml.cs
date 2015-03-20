@@ -19,10 +19,5 @@ namespace NatuurApp
         {
             InitializeComponent();
         }
-
-        private void UserControl_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            nav.Navigate(new Uri("/GUI/AreaView.xaml?AreaID=" + AreaID, UriKind.Relative));
-        }
     }
 }
