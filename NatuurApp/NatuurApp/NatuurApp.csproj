@@ -83,6 +83,9 @@
       <DependentUpon>AreaListItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataAccessLayer\DataAccessLayer.cs" />
+    <Compile Include="GUI\AreaView.xaml.cs">
+      <DependentUpon>AreaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\AreaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,10 +122,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\DataBase.sdf" />
-    <Content Include="Resources\DePut1.jpg" />
-    <Content Include="Resources\DePut2.jpg" />
-    <Content Include="Resources\DePut3.jpg" />
-    <Content Include="Resources\DePut4.jpg" />
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

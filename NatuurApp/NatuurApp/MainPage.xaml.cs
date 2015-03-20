@@ -24,7 +24,6 @@ namespace NatuurApp
         public MainPage()
         {
             InitializeComponent();
-            //EmbededDB db = new EmbededDB();
         }
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
@@ -34,9 +33,10 @@ namespace NatuurApp
 
         private void LoadListItems()
         {
+            AreaStackPanel.Children.Clear();
             foreach (var item in CreateListItems())
             {
-                ContentPanel.Children.Add(item);
+                AreaStackPanel.Children.Add(item);
             }
         }
 
@@ -61,10 +61,21 @@ namespace NatuurApp
                 ali.AreaShortDescription.Text = item.BriefDescription;
                 ali.AreaLocation.Text = item.Location;
                 ali.AreaImage.Source = ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
+                ali.nav = this.NavigationService;
                 result.Add(ali);
             }
 
             return result;
+        }
+
+        private void ShowFullAreaView(int AreaID)
+        {
+
+        }
+
+        private void btnAddArea_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/GUI/AddArea.xaml", UriKind.Relative));
         }
     }
 }

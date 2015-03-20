@@ -22,6 +22,7 @@ namespace NatuurApp.GUI
         {
             EmbededDB DB = new EmbededDB();
             DB.InsertArea(tbAreaName.Text,tbAreaDescription.Text,tbAreaLocation.Text);
+            NavigationService.GoBack();
         }
     }
 }

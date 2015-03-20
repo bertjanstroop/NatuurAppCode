@@ -20,12 +20,35 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28"/>
+        <StackPanel x:Name="TitlePanel"  Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="NatuurApp" Name="tex1"/>
+        </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="4" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Margin="0,0,0,104">
+            <StackPanel Name="AreaStackPanel" Orientation="Vertical" >
+                <StackPanel.Resources>
+                    <Style TargetType="UserControl">
+                        <Setter Property="Margin"  Value="0,0,0,10"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+            </ScrollViewer>
+            <Button Name="btnAddArea" Content="Add New" Click="btnAddArea_Click" Margin="54,89,10,10" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="3"/>
         </Grid>
     </Grid>
- 
+
 </phone:PhoneApplicationPage>
