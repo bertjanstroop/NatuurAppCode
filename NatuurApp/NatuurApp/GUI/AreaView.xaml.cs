@@ -22,7 +22,7 @@ namespace NatuurApp.GUI
             InitializeComponent();
         }
 
-        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        private void INIT()
         {
             NatureArea_LoadData();
             NatureAreaFoto_LoadData();
@@ -62,6 +62,7 @@ namespace NatuurApp.GUI
             {
                 this.AreaID = int.Parse(parameter);
             }
+            INIT();
         }
     }
 }
