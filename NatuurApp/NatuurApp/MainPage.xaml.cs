@@ -71,5 +71,11 @@ namespace NatuurApp
         {
             NavigationService.Navigate(new Uri("/GUI/AddArea.xaml", UriKind.Relative));
         }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            LoadListItems();
+        }
     }
 }

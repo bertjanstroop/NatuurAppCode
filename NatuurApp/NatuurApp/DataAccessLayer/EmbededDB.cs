@@ -104,5 +104,66 @@ namespace NatuurApp.DataAccessLayer.db
                 context.SubmitChanges();
             }
         }
+
+        public bool InsertNewArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto)
+        {
+            bool result = false;
+            try
+            {
+                using (var context = new databaseContext(ConnectionString))
+                {
+                    context.Tbl_NatureArea.InsertOnSubmit(area);
+                    context.Tbl_NatureAreaFoto.InsertOnSubmit(foto);
+                    context.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return result;
+        }
+
+        public bool UpdateArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto)
+        {
+            bool result = false;
+            //give foto the same AreaID
+            foto.AreaID = area.AreaID;
+            using (var context = new databaseContext(ConnectionString))
+            {
+                var tmp = (from s in context.Tbl_NatureArea
+                           where s.AreaID == area.AreaID
+                           select s).First();
+                //insert changes inside area to tmp
+                tmp = area;
+                //try to submit changes inside tmp
+                try
+                {
+                    context.SubmitChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            using (var context = new databaseContext(ConnectionString))
+            {
+                var tmp = (from s in context.Tbl_NatureAreaFoto
+                           where s.AreaID == foto.AreaID
+                           select s).First();
+                //insert changes inside foto to tmp
+                tmp = foto;
+                //try to submit changes inside tmp
+                try
+                {
+                    context.SubmitChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            return result;
+        }
     }
 }

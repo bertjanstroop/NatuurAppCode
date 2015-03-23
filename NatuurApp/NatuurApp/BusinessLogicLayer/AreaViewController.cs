@@ -24,5 +24,15 @@ namespace NatuurApp.BusinessLogicLayer
         {
             return DataAccess.GetInstance.db.GetAreaFotoByID(AreaID);
         }
+
+        public void InsertNewArea(Tbl_NatureArea area,Tbl_NatureAreaFoto foto)
+        {
+            
+        }
+
+        public void UpdateArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto)
+        {
+
+        }
     }
 }
