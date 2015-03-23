@@ -59,11 +59,10 @@ namespace NatuurApp
                 ali.AreaName.Text = item.AreaName;
                 ali.AreaShortDescription.Text = item.BriefDescription;
                 ali.AreaLocation.Text = item.Location;
-                //ali.AreaImage.Source = ImageConvert.ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
+                ali.AreaImage.Source = ImageConvert.ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
                 ali.nav = this.NavigationService;
                 result.Add(ali);
             }
-
             return result;
         }
 
