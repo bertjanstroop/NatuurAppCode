@@ -1,6 +1,8 @@
 ﻿//#define DeleteDB
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.IO.IsolatedStorage;
@@ -92,15 +94,14 @@ namespace NatuurApp.DataAccessLayer.db
             return result;
         }
 
-        public void InsertArea(string Name, string Description, string Location)
+        public void InsertArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto )
         {
-            Tbl_NatureArea t = new Tbl_NatureArea();
-            t.AreaName = Name;
-            t.BriefDescription = Description;
-            t.Location = Location;
+            // Brief description and extended description is the same data at this point
+
             using (var context = new databaseContext(ConnectionString))
             {
-                context.Tbl_NatureArea.InsertOnSubmit(t);
+                context.Tbl_NatureArea.InsertOnSubmit(area);
+                context.Tbl_NatureAreaFoto.InsertOnSubmit(foto);
                 context.SubmitChanges();
             }
         }

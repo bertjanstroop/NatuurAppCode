@@ -48,7 +48,7 @@ namespace NatuurApp
             NavigationService.Navigate(new Uri("/GUI/AreaView.xaml?AreaID=" + tmp.AreaID, UriKind.Relative));
         }
 
-        private List<AreaListItem> CreateListItems()
+        public List<AreaListItem> CreateListItems()
         {
             List<AreaListItem> result = new List<AreaListItem>();
             var tmp = ALC.GetAreaList();
@@ -59,7 +59,7 @@ namespace NatuurApp
                 ali.AreaName.Text = item.AreaName;
                 ali.AreaShortDescription.Text = item.BriefDescription;
                 ali.AreaLocation.Text = item.Location;
-                ali.AreaImage.Source = ImageConvert.ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
+                //ali.AreaImage.Source = ImageConvert.ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
                 ali.nav = this.NavigationService;
                 result.Add(ali);
             }
