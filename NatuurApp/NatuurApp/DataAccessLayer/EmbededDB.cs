@@ -96,11 +96,12 @@ namespace NatuurApp.DataAccessLayer.db
 
         public void InsertArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto )
         {
-            // Brief description and extended description is the same data at this point
+            
 
             using (var context = new databaseContext(ConnectionString))
             {
                 context.Tbl_NatureArea.InsertOnSubmit(area);
+                
                 context.Tbl_NatureAreaFoto.InsertOnSubmit(foto);
                 context.SubmitChanges();
             }

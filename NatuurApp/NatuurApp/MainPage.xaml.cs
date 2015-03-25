@@ -59,7 +59,7 @@ namespace NatuurApp
                 ali.AreaName.Text = item.AreaName;
                 ali.AreaShortDescription.Text = item.BriefDescription;
                 ali.AreaLocation.Text = item.Location;
-                //ali.AreaImage.Source = ImageConvert.ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
+                ali.AreaImage.Source = ImageConvert.ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
                 ali.nav = this.NavigationService;
                 result.Add(ali);
             }
@@ -70,6 +70,12 @@ namespace NatuurApp
         private void btnAddArea_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/GUI/AddArea.xaml", UriKind.Relative));
+        }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            LoadListItems();
         }
     }
 }
