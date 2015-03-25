@@ -64,5 +64,34 @@ namespace NatuurApp.GUI
             }
             INIT();
         }
+
+        private void Image1_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            StaticData.FullImage = Image1;
+            NavigateToFullFotoView();
+        }
+
+        private void Image2_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            StaticData.FullImage = Image2;
+            NavigateToFullFotoView();
+        }
+
+        private void Image3_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            StaticData.FullImage = Image3;
+            NavigateToFullFotoView();
+        }
+
+        private void Image4_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            StaticData.FullImage = Image4;
+            NavigateToFullFotoView();
+        }
+
+        private void NavigateToFullFotoView()
+        {
+            NavigationService.Navigate(new Uri("/GUI/FotoFullView.xaml", UriKind.Relative));
+        }
     }
 }

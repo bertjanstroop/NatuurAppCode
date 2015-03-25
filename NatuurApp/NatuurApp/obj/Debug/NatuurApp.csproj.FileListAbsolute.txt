@@ -10,6 +10,7 @@ C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\App.g.cs
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\GUI\AddArea.g.cs
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\GUI\AreaListItem.g.cs
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\GUI\AreaView.g.cs
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\GUI\FotoFullView.g.cs
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\MainPage.g.cs
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\NatuurApp.g.resources
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\NatuurApp.dll

@@ -63,7 +63,6 @@ namespace NatuurApp
                 ali.nav = this.NavigationService;
                 result.Add(ali);
             }
-
             return result;
         }
 
