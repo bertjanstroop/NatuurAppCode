@@ -10,12 +10,14 @@ namespace NatuurApp.BusinessLogicLayer
 {
    public static class ImageConvert
     {
+       private static BitmapImage biImg = new BitmapImage();
         public static ImageSource ByteToImage(byte[] imageData)
         {
-            BitmapImage biImg = new BitmapImage();
+            
             MemoryStream ms = new MemoryStream(imageData);
             biImg.SetSource(ms);
             ImageSource imgSrc = biImg as ImageSource;
+            biImg = new BitmapImage();
             return imgSrc;
         }
     }

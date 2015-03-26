@@ -76,6 +76,7 @@
     <Compile Include="BusinessLogicLayer\AreaViewController.cs" />
     <Compile Include="BusinessLogicLayer\ImageConvert.cs" />
     <Compile Include="BusinessLogicLayer\StaticData.cs" />
+    <Compile Include="DataAccessLayer\CompiledLinq.cs" />
     <Compile Include="DataContext\Context.cs" />
     <Compile Include="DataAccessLayer\EmbededDB.cs" />
     <Compile Include="GUI\AddArea.xaml.cs">

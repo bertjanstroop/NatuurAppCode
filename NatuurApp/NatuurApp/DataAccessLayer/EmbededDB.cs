@@ -1,4 +1,4 @@
-﻿#define DeleteDB
+﻿//#define DeleteDB
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -48,10 +48,11 @@ namespace NatuurApp.DataAccessLayer.db
             Tbl_NatureArea result = new Tbl_NatureArea();
             using (var context = new Context(ConnectionString))
             {
-                var tmp = (from s in context.Tbl_NatureArea
-                          where s.AreaID == ID
-                          select s).First();
-                result = tmp;
+                //var tmp = (from s in context.Tbl_NatureArea
+                //          where s.AreaID == ID
+                //          select s).First();
+                //result = tmp;
+                result = CompiledLinq.GetAreaByID(context, ID).First();
             }
             return result;
         }
@@ -62,25 +63,10 @@ namespace NatuurApp.DataAccessLayer.db
             
             using (var context = new Context(ConnectionString))
             {
-                var tmp = from s in context.Tbl_NatureArea
-                          select s;
-                foreach (Tbl_NatureArea item in tmp)
-                {
-                    result.Add(item);
-                }
-            }
-
-            return result;
-        }
-
-        public int GetNextPrimary()
-        {
-            int result = 0;
-            using (var context = new Context(ConnectionString))
-            {
-                var tmp = (from s in context.Tbl_NatureArea
-                          select s.AreaID).Max();
-                result = tmp++;
+                //var tmp = from s in context.Tbl_NatureArea
+                //          select s;
+                //result = tmp.ToList();
+                result = CompiledLinq.GetAreaList(context).ToList();
             }
             return result;
         }
@@ -88,21 +74,13 @@ namespace NatuurApp.DataAccessLayer.db
         public Tbl_NatureAreaFoto GetAreaFotoByID(int AreaID)
         {
             Tbl_NatureAreaFoto result = new Tbl_NatureAreaFoto();
-            try
+            using (var context = new Context(ConnectionString))
             {
-                
-                using (var context = new Context(ConnectionString))
-                {
-                    var tmp = (from s in context.Tbl_NatureAreaFoto
-                               where s.AreaID == AreaID
-                               select s).First();
-                    result = tmp;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                throw;
+                //var tmp = (from s in context.Tbl_NatureAreaFoto
+                //            where s.AreaID == AreaID
+                //            select s).First();
+                //result = tmp;
+                result = CompiledLinq.GetAreaFotoByID(context, AreaID).First();
             }
             return result;
         }

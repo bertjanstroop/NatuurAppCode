@@ -29,10 +29,5 @@ namespace NatuurApp.BusinessLogicLayer
         {
             DataAccess.GetInstance.db.InsertNewArea(area,foto);
         }
-
-        public int GetNextPrimary()
-        {
-            return DataAccess.GetInstance.db.GetNextPrimary();
-        }
     }
 }

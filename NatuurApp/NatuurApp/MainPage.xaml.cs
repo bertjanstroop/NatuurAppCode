@@ -14,6 +14,7 @@ using NatuurApp.BusinessLogicLayer;
 using System.Windows.Media.Imaging;
 using System.IO;
 using NatuurApp.DataAccessLayer.db;
+using System.ComponentModel;
 namespace NatuurApp
 {
     public partial class MainPage : PhoneApplicationPage
@@ -24,7 +25,18 @@ namespace NatuurApp
         public MainPage()
         {
             InitializeComponent();
-            LoadListItems();
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            Application.Current.RootVisual.Dispatcher.BeginInvoke(LoadListItems);
+        }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            Application.Current.RootVisual.Dispatcher.BeginInvoke(LoadListItems);
         }
 
         private void LoadListItems()
@@ -68,13 +80,12 @@ namespace NatuurApp
 
         private void btnAddArea_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/GUI/AddArea.xaml", UriKind.Relative));
+            Application.Current.RootVisual.Dispatcher.BeginInvoke(worker_DoWork);
         }
 
-        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        void worker_DoWork()
         {
-            base.OnNavigatedFrom(e);
-            LoadListItems();
+            NavigationService.Navigate(new Uri("/GUI/AddArea.xaml", UriKind.Relative));
         }
     }
 }

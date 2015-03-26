@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using NatuurApp.BusinessLogicLayer;
+using System.ComponentModel;
 
 namespace NatuurApp.GUI
 {
@@ -26,7 +27,8 @@ namespace NatuurApp.GUI
         {
             NatureArea_LoadData();
             NatureAreaFoto_LoadData();
-            FillScreen();
+            SetTextData();
+            SetImageData();
         }
 
         private void NatureArea_LoadData()
@@ -39,7 +41,7 @@ namespace NatuurApp.GUI
             NatureAreaFoto = AVC.GetAreaFotoByID(AreaID);
         }
 
-        private void FillScreen()
+        private void SetTextData()
         {
             txtAreaName.Text = NatureArea.AreaName;
             txtExtendedDescription.Text = NatureArea.ExtendedDescription;
@@ -47,11 +49,14 @@ namespace NatuurApp.GUI
             txtLongitude.Text = "" + NatureArea.Longitude;
             txtLocation.Text = NatureArea.Location;
             txtSeasonTip.Text = NatureArea.BestSeason;
+        }
 
-            Image1.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image1.ToArray());
-            Image2.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image2.ToArray());
-            Image3.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image3.ToArray());
-            Image4.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image4.ToArray());
+        private void SetImageData()
+        {
+            //Image1.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image1.ToArray());
+            //Image2.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image2.ToArray());
+            //Image3.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image3.ToArray());
+            //Image4.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image4.ToArray());
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -62,7 +67,8 @@ namespace NatuurApp.GUI
             {
                 this.AreaID = int.Parse(parameter);
             }
-            INIT();
+            Application.Current.RootVisual.Dispatcher.BeginInvoke(INIT);
+            //INIT();
         }
 
         private void Image1_Tap(object sender, System.Windows.Input.GestureEventArgs e)
