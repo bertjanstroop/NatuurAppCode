@@ -1,4 +1,4 @@
-﻿//#define DeleteDB
+﻿#define DeleteDB
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -46,7 +46,7 @@ namespace NatuurApp.DataAccessLayer.db
         public Tbl_NatureArea GetAreaByID(int ID)
         {
             Tbl_NatureArea result = new Tbl_NatureArea();
-            using (var context = new databaseContext(ConnectionString))
+            using (var context = new Context(ConnectionString))
             {
                 var tmp = (from s in context.Tbl_NatureArea
                           where s.AreaID == ID
@@ -59,7 +59,8 @@ namespace NatuurApp.DataAccessLayer.db
         public List<Tbl_NatureArea> GetAreaList()
         {
             List<Tbl_NatureArea> result = new List<Tbl_NatureArea>();
-            using (var context = new databaseContext(ConnectionString))
+            
+            using (var context = new Context(ConnectionString))
             {
                 var tmp = from s in context.Tbl_NatureArea
                           select s;
@@ -72,13 +73,25 @@ namespace NatuurApp.DataAccessLayer.db
             return result;
         }
 
+        public int GetNextPrimary()
+        {
+            int result = 0;
+            using (var context = new Context(ConnectionString))
+            {
+                var tmp = (from s in context.Tbl_NatureArea
+                          select s.AreaID).Max();
+                result = tmp++;
+            }
+            return result;
+        }
+
         public Tbl_NatureAreaFoto GetAreaFotoByID(int AreaID)
         {
             Tbl_NatureAreaFoto result = new Tbl_NatureAreaFoto();
             try
             {
                 
-                using (var context = new databaseContext(ConnectionString))
+                using (var context = new Context(ConnectionString))
                 {
                     var tmp = (from s in context.Tbl_NatureAreaFoto
                                where s.AreaID == AreaID
@@ -98,10 +111,10 @@ namespace NatuurApp.DataAccessLayer.db
         {
             
 
-            using (var context = new databaseContext(ConnectionString))
+            using (var context = new Context(ConnectionString))
             {
                 context.Tbl_NatureArea.InsertOnSubmit(area);
-                
+                context.SubmitChanges();
                 context.Tbl_NatureAreaFoto.InsertOnSubmit(foto);
                 context.SubmitChanges();
             }
@@ -112,7 +125,7 @@ namespace NatuurApp.DataAccessLayer.db
             bool result = false;
             try
             {
-                using (var context = new databaseContext(ConnectionString))
+                using (var context = new Context(ConnectionString))
                 {
                     context.Tbl_NatureArea.InsertOnSubmit(area);
                     context.Tbl_NatureAreaFoto.InsertOnSubmit(foto);
@@ -131,7 +144,7 @@ namespace NatuurApp.DataAccessLayer.db
             bool result = false;
             //give foto the same AreaID
             foto.AreaID = area.AreaID;
-            using (var context = new databaseContext(ConnectionString))
+            using (var context = new Context(ConnectionString))
             {
                 var tmp = (from s in context.Tbl_NatureArea
                            where s.AreaID == area.AreaID
@@ -148,7 +161,7 @@ namespace NatuurApp.DataAccessLayer.db
                     MessageBox.Show(ex.ToString());
                 }
             }
-            using (var context = new databaseContext(ConnectionString))
+            using (var context = new Context(ConnectionString))
             {
                 var tmp = (from s in context.Tbl_NatureAreaFoto
                            where s.AreaID == foto.AreaID

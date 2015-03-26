@@ -87,7 +87,7 @@ public class DebugWriter : TextWriter
 }
 
 
-	public partial class databaseContext : System.Data.Linq.DataContext
+	public partial class Context : System.Data.Linq.DataContext
 	{
 		
 		public bool CreateIfNotExists()
@@ -154,13 +154,13 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		public static string ConnectionString = "Data Source=isostore:/database.sdf";
+		public static string ConnectionString = "Data Source=isostore:/DataBase.sdf";
 
-		public static string ConnectionStringReadOnly = "Data Source=appdata:/database.sdf;File Mode=Read Only;";
+		public static string ConnectionStringReadOnly = "Data Source=appdata:/DataBase.sdf;File Mode=Read Only;";
 
-		public static string FileName = "database.sdf";
+		public static string FileName = "DataBase.sdf";
 
-		public databaseContext(string connectionString) : base(connectionString)
+		public Context(string connectionString) : base(connectionString)
 		{
 			OnCreated();
 		}
@@ -202,13 +202,13 @@ public class DebugWriter : TextWriter
 		
 		private string _AreaName;
 		
-		private string _BriefDescription;
+		private string _BriefDesciption;
 		
 		private string _ExtendedDescription;
 		
-		private int _Latitude;
+		private string _Latitude;
 		
-		private int _Longitude;
+		private string _Longitude;
 		
 		private string _Location;
 		
@@ -222,13 +222,13 @@ public class DebugWriter : TextWriter
     partial void OnAreaIDChanged();
     partial void OnAreaNameChanging(string value);
     partial void OnAreaNameChanged();
-    partial void OnBriefDescriptionChanging(string value);
-    partial void OnBriefDescriptionChanged();
+    partial void OnBriefDesciptionChanging(string value);
+    partial void OnBriefDesciptionChanged();
     partial void OnExtendedDescriptionChanging(string value);
     partial void OnExtendedDescriptionChanged();
-    partial void OnLatitudeChanging(int value);
+    partial void OnLatitudeChanging(string value);
     partial void OnLatitudeChanged();
-    partial void OnLongitudeChanging(int value);
+    partial void OnLongitudeChanging(string value);
     partial void OnLongitudeChanged();
     partial void OnLocationChanging(string value);
     partial void OnLocationChanged();
@@ -261,7 +261,7 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AreaName", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AreaName", DbType="NVarChar(100)")]
 		public string AreaName
 		{
 			get
@@ -281,27 +281,27 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BriefDescription", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string BriefDescription
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BriefDesciption", DbType="NVarChar(100)")]
+		public string BriefDesciption
 		{
 			get
 			{
-				return this._BriefDescription;
+				return this._BriefDesciption;
 			}
 			set
 			{
-				if ((this._BriefDescription != value))
+				if ((this._BriefDesciption != value))
 				{
-					this.OnBriefDescriptionChanging(value);
+					this.OnBriefDesciptionChanging(value);
 					this.SendPropertyChanging();
-					this._BriefDescription = value;
-					this.SendPropertyChanged("BriefDescription");
-					this.OnBriefDescriptionChanged();
+					this._BriefDesciption = value;
+					this.SendPropertyChanged("BriefDesciption");
+					this.OnBriefDesciptionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExtendedDescription", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExtendedDescription", DbType="NVarChar(100)")]
 		public string ExtendedDescription
 		{
 			get
@@ -321,8 +321,8 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="Int NOT NULL")]
-		public int Latitude
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(100)")]
+		public string Latitude
 		{
 			get
 			{
@@ -341,8 +341,8 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="Int NOT NULL")]
-		public int Longitude
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(100)")]
+		public string Longitude
 		{
 			get
 			{
@@ -361,7 +361,7 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="NVarChar(100)")]
 		public string Location
 		{
 			get
@@ -381,7 +381,7 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BestSeason", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BestSeason", DbType="NVarChar(100)")]
 		public string BestSeason
 		{
 			get
@@ -428,8 +428,6 @@ public class DebugWriter : TextWriter
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ID;
-		
 		private int _AreaID;
 		
 		private System.Data.Linq.Binary _Image1;
@@ -444,8 +442,6 @@ public class DebugWriter : TextWriter
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
     partial void OnAreaIDChanging(int value);
     partial void OnAreaIDChanged();
     partial void OnImage1Changing(System.Data.Linq.Binary value);
@@ -463,27 +459,7 @@ public class DebugWriter : TextWriter
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AreaID", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AreaID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int AreaID
 		{
 			get
@@ -503,7 +479,7 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Image1
 		{
 			get
@@ -523,7 +499,7 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Image2
 		{
 			get
@@ -543,7 +519,7 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Image3
 		{
 			get
@@ -563,7 +539,7 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Image4
 		{
 			get

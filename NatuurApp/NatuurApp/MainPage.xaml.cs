@@ -57,7 +57,7 @@ namespace NatuurApp
                 AreaListItem ali = new AreaListItem();
                 ali.AreaID = item.AreaID;
                 ali.AreaName.Text = item.AreaName;
-                ali.AreaShortDescription.Text = item.BriefDescription;
+                ali.AreaShortDescription.Text = item.BriefDesciption;
                 ali.AreaLocation.Text = item.Location;
                 ali.AreaImage.Source = ImageConvert.ByteToImage(ALC.GetAreaFotoByID(item.AreaID).Image1.ToArray());
                 ali.nav = this.NavigationService;

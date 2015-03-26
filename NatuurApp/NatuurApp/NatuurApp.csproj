@@ -76,8 +76,8 @@
     <Compile Include="BusinessLogicLayer\AreaViewController.cs" />
     <Compile Include="BusinessLogicLayer\ImageConvert.cs" />
     <Compile Include="BusinessLogicLayer\StaticData.cs" />
-    <Compile Include="DataAccessLayer\EmbededDB.cs" />
     <Compile Include="DataContext\Context.cs" />
+    <Compile Include="DataAccessLayer\EmbededDB.cs" />
     <Compile Include="GUI\AddArea.xaml.cs">
       <DependentUpon>AddArea.xaml</DependentUpon>
     </Compile>
@@ -130,10 +130,12 @@
     <Content Include="ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\DataBase.sdf" />
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Resources\DataBase.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
