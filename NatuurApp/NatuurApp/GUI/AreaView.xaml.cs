@@ -53,10 +53,10 @@ namespace NatuurApp.GUI
 
         private void SetImageData()
         {
-            //Image1.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image1.ToArray());
-            //Image2.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image2.ToArray());
-            //Image3.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image3.ToArray());
-            //Image4.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image4.ToArray());
+            Image1.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image1.ToArray());
+            Image2.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image2.ToArray());
+            Image3.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image3.ToArray());
+            Image4.Source = ImageConvert.ByteToImage(NatureAreaFoto.Image4.ToArray());
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -67,8 +67,7 @@ namespace NatuurApp.GUI
             {
                 this.AreaID = int.Parse(parameter);
             }
-            Application.Current.RootVisual.Dispatcher.BeginInvoke(INIT);
-            //INIT();
+            INIT();
         }
 
         private void Image1_Tap(object sender, System.Windows.Input.GestureEventArgs e)

@@ -87,7 +87,7 @@ public class DebugWriter : TextWriter
 }
 
 
-	public partial class Context : System.Data.Linq.DataContext
+	public partial class databaseContext : System.Data.Linq.DataContext
 	{
 		
 		public bool CreateIfNotExists()
@@ -154,13 +154,13 @@ public class DebugWriter : TextWriter
 			}
 		}
 		
-		public static string ConnectionString = "Data Source=isostore:/DataBase.sdf";
+		public static string ConnectionString = "Data Source=isostore:/database.sdf";
 
-		public static string ConnectionStringReadOnly = "Data Source=appdata:/DataBase.sdf;File Mode=Read Only;";
+		public static string ConnectionStringReadOnly = "Data Source=appdata:/database.sdf;File Mode=Read Only;";
 
-		public static string FileName = "DataBase.sdf";
+		public static string FileName = "database.sdf";
 
-		public Context(string connectionString) : base(connectionString)
+		public databaseContext(string connectionString) : base(connectionString)
 		{
 			OnCreated();
 		}
