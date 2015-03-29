@@ -93,65 +93,36 @@ namespace NatuurApp.DataAccessLayer.db
             }
         }
 
-        public bool InsertNewArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto)
+        public void UpdateArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto)
         {
-            bool result = false;
-            try
+            using (var Context = new databaseContext(ConnectionString))
             {
-                using (var context = new databaseContext(ConnectionString))
+                try
                 {
-                    context.Tbl_NatureArea.InsertOnSubmit(area);
-                    context.Tbl_NatureAreaFoto.InsertOnSubmit(foto);
-                    context.SubmitChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            return result;
-        }
+                    var ar = (from s in Context.Tbl_NatureArea where s.AreaID == area.AreaID select s).First();
+                    //set new area data
+                    ar.AreaName = area.AreaName;
+                    ar.BriefDesciption = area.BriefDesciption;
+                    ar.ExtendedDescription = area.ExtendedDescription;
+                    ar.Latitude = area.Latitude;
+                    ar.Longitude = area.Longitude;
+                    ar.BestSeason = area.BestSeason;
 
-        public bool UpdateArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto)
-        {
-            bool result = false;
-            //give foto the same AreaID
-            foto.AreaID = area.AreaID;
-            using (var context = new databaseContext(ConnectionString))
-            {
-                var tmp = (from s in context.Tbl_NatureArea
-                           where s.AreaID == area.AreaID
-                           select s).First();
-                //insert changes inside area to tmp
-                tmp = area;
-                //try to submit changes inside tmp
-                try
-                {
-                    context.SubmitChanges();
+                    var fo = (from s in Context.Tbl_NatureAreaFoto where s.AreaID == foto.AreaID select s).First();
+                    //set new foto data
+                    fo.Image1 = foto.Image1;
+                    fo.Image2 = foto.Image2;
+                    fo.Image3 = foto.Image3;
+                    fo.Image4 = foto.Image4;
+
+                    Context.SubmitChanges();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
+                    throw;
                 }
             }
-            using (var context = new databaseContext(ConnectionString))
-            {
-                var tmp = (from s in context.Tbl_NatureAreaFoto
-                           where s.AreaID == foto.AreaID
-                           select s).First();
-                //insert changes inside foto to tmp
-                tmp = foto;
-                //try to submit changes inside tmp
-                try
-                {
-                    context.SubmitChanges();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-            return result;
         }
     }
 }

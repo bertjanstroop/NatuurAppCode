@@ -18,3 +18,4 @@ C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\NatuurApp.dll
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\NatuurApp.pdb
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\XapCacheFile.xml
 C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\NatuurApp.csprojResolveAssemblyReference.cache
+C:\NatuurAppCode\NatuurAppCode\NatuurApp\NatuurApp\obj\Debug\GUI\UpdateArea.g.cs

@@ -27,7 +27,12 @@ namespace NatuurApp.BusinessLogicLayer
 
         public void InsertArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto)
         {
-            DataAccess.GetInstance.db.InsertNewArea(area,foto);
+            DataAccess.GetInstance.db.InsertArea(area,foto);
+        }
+
+        public void UpdateArea(Tbl_NatureArea area, Tbl_NatureAreaFoto foto)
+        {
+            DataAccess.GetInstance.db.UpdateArea(area, foto);
         }
     }
 }

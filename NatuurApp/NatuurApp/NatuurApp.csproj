@@ -88,6 +88,9 @@
     <Compile Include="GUI\AreaView.xaml.cs">
       <DependentUpon>AreaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UpdateArea.xaml.cs">
+      <DependentUpon>UpdateArea.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FotoFullView.xaml.cs">
       <DependentUpon>FotoFullView.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
     <Page Include="GUI\AreaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UpdateArea.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\FotoFullView.xaml">
       <SubType>Designer</SubType>

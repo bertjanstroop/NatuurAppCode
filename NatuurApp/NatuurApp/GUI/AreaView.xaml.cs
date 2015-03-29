@@ -98,5 +98,10 @@ namespace NatuurApp.GUI
         {
             NavigationService.Navigate(new Uri("/GUI/FotoFullView.xaml", UriKind.Relative));
         }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/GUI/UpdateArea.xaml?AreaID=" + AreaID, UriKind.Relative));
+        }
     }
 }
