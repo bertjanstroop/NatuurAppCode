@@ -20,6 +20,7 @@ namespace NatuurApp.GUI
     {
         private int AreaID { get; set; }
         Tbl_NatureAreaFoto tblFoto = new Tbl_NatureAreaFoto();
+        Tbl_NatureAreaFoto FotoBackup = new Tbl_NatureAreaFoto();
         Tbl_NatureArea tblArea = new Tbl_NatureArea();
         private AreaViewController AVC = new AreaViewController();
         public UpdateArea()
@@ -31,6 +32,7 @@ namespace NatuurApp.GUI
         {
             tblArea = AVC.GetAreaByID(AreaID);
             tblFoto = AVC.GetAreaFotoByID(AreaID);
+            FotoBackup = tblFoto;
         }
 
         private void FillScreen()
@@ -80,11 +82,18 @@ namespace NatuurApp.GUI
 
         void pct_CompletedImage1(object sender, PhotoResult e)
         {
-            e.ChosenPhoto.Position = 0;
-            var Bytes1 = new byte[e.ChosenPhoto.Length];
-            e.ChosenPhoto.Read(Bytes1, 0, (int)e.ChosenPhoto.Length);
-            tblFoto.Image1 = Bytes1;
-            txtImagePath1.Text = e.OriginalFileName.ToString();
+            try
+            {
+                e.ChosenPhoto.Position = 0;
+                var Bytes1 = new byte[e.ChosenPhoto.Length];
+                e.ChosenPhoto.Read(Bytes1, 0, (int)e.ChosenPhoto.Length);
+                tblFoto.Image1 = Bytes1;
+                txtImagePath1.Text = e.OriginalFileName.ToString();
+            }
+            catch (Exception)
+            {
+                tblFoto.Image1 = FotoBackup.Image1;
+            }
         }
 
         private void btnAddImage2_Click(object sender, RoutedEventArgs e)
@@ -96,11 +105,18 @@ namespace NatuurApp.GUI
 
         void pct_CompletedImage2(object sender, PhotoResult e)
         {
-            e.ChosenPhoto.Position = 0;
-            var Bytes2 = new byte[e.ChosenPhoto.Length];
-            e.ChosenPhoto.Read(Bytes2, 0, (int)e.ChosenPhoto.Length);
-            tblFoto.Image2 = Bytes2;
-            txtImagePath2.Text = e.OriginalFileName.ToString();
+            try
+            {
+                e.ChosenPhoto.Position = 0;
+                var Bytes2 = new byte[e.ChosenPhoto.Length];
+                e.ChosenPhoto.Read(Bytes2, 0, (int)e.ChosenPhoto.Length);
+                tblFoto.Image2 = Bytes2;
+                txtImagePath2.Text = e.OriginalFileName.ToString();
+            }
+            catch (Exception)
+            {
+                tblFoto.Image2 = FotoBackup.Image2;
+            }
         }
 
         private void btnAddImage3_Click(object sender, RoutedEventArgs e)
@@ -112,11 +128,18 @@ namespace NatuurApp.GUI
 
         void pct_CompletedImage3(object sender, PhotoResult e)
         {
-            e.ChosenPhoto.Position = 0;
-            var Bytes3 = new byte[e.ChosenPhoto.Length];
-            e.ChosenPhoto.Read(Bytes3, 0, (int)e.ChosenPhoto.Length);
-            tblFoto.Image3 = Bytes3;
-            txtImagePath3.Text = e.OriginalFileName.ToString();
+            try
+            {
+                e.ChosenPhoto.Position = 0;
+                var Bytes3 = new byte[e.ChosenPhoto.Length];
+                e.ChosenPhoto.Read(Bytes3, 0, (int)e.ChosenPhoto.Length);
+                tblFoto.Image3 = Bytes3;
+                txtImagePath3.Text = e.OriginalFileName.ToString();
+            }
+            catch (Exception)
+            {
+                tblFoto.Image3 = FotoBackup.Image3;
+            }
         }
         private void btnAddImage4_Click(object sender, RoutedEventArgs e)
         {
@@ -127,11 +150,18 @@ namespace NatuurApp.GUI
 
         void pct_CompletedImage4(object sender, PhotoResult e)
         {
-            e.ChosenPhoto.Position = 0;
-            var Bytes4 = new byte[e.ChosenPhoto.Length];
-            e.ChosenPhoto.Read(Bytes4, 0, (int)e.ChosenPhoto.Length);
-            tblFoto.Image4 = Bytes4;
-            txtImagePath4.Text = e.OriginalFileName.ToString();
+            try
+            {
+                e.ChosenPhoto.Position = 0;
+                var Bytes4 = new byte[e.ChosenPhoto.Length];
+                e.ChosenPhoto.Read(Bytes4, 0, (int)e.ChosenPhoto.Length);
+                tblFoto.Image4 = Bytes4;
+                txtImagePath4.Text = e.OriginalFileName.ToString();
+            }
+            catch (Exception)
+            {
+                tblFoto.Image4 = FotoBackup.Image4;
+            }
         }
     }
 }
