@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NatuurApp.App" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAgAQAIAAAAhAAAAAAAAAAAAAAAEQAAAAAAAIIAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.DebugWriter" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgACAAAAAICAAAAAAAgAAAAAAAAAAAAAEIAAA=</HashCode>
+      <FileName>DataContext\DatabaseContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.databaseContext" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAgAAAABAAAAiQZAAAAACQAAEBAAAA=</HashCode>
+      <FileName>DataContext\DatabaseContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.Tbl_NatureArea" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIgIAgjAMBEUAIAQAMogAARiCASEBAQMAAAAACgAAA=</HashCode>
+      <FileName>DataContext\DatabaseContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NatuurApp.Tbl_NatureAreaFoto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoAgAAgBAAAAAQAEQAEAQAARiCAAABARIAIAgkMAAAA=</HashCode>
+      <FileName>DataContext\DatabaseContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NatuurApp.AreaListItem" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>GUI\AreaListItem.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.MainPage" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAADAEAAAAAAAAAAAAAQIAAAAAAQACQBAAAAAAAA=</HashCode>
+      <FileName>MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.BusinessLogicLayer.AreaListController" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogicLayer\AreaListController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.BusinessLogicLayer.AreaViewController" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIEAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogicLayer\AreaViewController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.BusinessLogicLayer.ImageConvert" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogicLayer\ImageConvert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.BusinessLogicLayer.StaticData" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>BusinessLogicLayer\StaticData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.DataAccessLayer.DataAccess" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAABABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccessLayer\DataAccessLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.DataAccessLayer.db.EmbededDB" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIEAAQAAIAAAAAAAAAAAACACAAAAAAQ=</HashCode>
+      <FileName>DataAccessLayer\EmbededDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.GUI.AddArea" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAwAMAAAAAAAAACIBABAEAAAA=</HashCode>
+      <FileName>GUI\AddArea.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.GUI.AreaView" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAKAAAAAgAADAAAAAAAQAAQAAACAAKQAAAACAAAA=</HashCode>
+      <FileName>GUI\AreaView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.GUI.FotoFullView" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GUI\FotoFullView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NatuurApp.GUI.UpdateArea" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAQAAAAAwAcAAAAAAAAAKIhABAEAAAA=</HashCode>
+      <FileName>GUI\UpdateArea.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
